@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Leçon 08 — Couleurs et polices</title>
+</head>
+<body>
+<div class="layout">
+
+    <aside class="sidebar">
+        <div class="sidebar-logo">HTML<span>&CSS</span></div>
+        <nav class="sidebar-nav">
+            <p class="sidebar-section-title">Partie 1 — HTML</p>
+            <ul>
+                <li><a href="lecon-1.html"><span class="nav-num">01</span>Structure d'une page</a></li>
+                <li><a href="lecon-2.html"><span class="nav-num">02</span>Balises de texte</a></li>
+                <li><a href="lecon-3.html"><span class="nav-num">03</span>Listes</a></li>
+                <li><a href="lecon-4.html"><span class="nav-num">04</span>Liens et images</a></li>
+                <li><a href="lecon-5.html"><span class="nav-num">05</span>Sémantique HTML</a></li>
+                <li><a href="lecon-6.html"><span class="nav-num">06</span>Formulaires</a></li>
+            </ul>
+        </nav>
+        <nav class="sidebar-nav">
+            <p class="sidebar-section-title">Partie 2 — CSS</p>
+            <ul>
+                <li><a href="lecon-7.html"><span class="nav-num">07</span>Introduction CSS</a></li>
+                <li><a href="lecon-8.html" class="active"><span class="nav-num">08</span>Couleurs et polices</a></li>
+                <li><a href="lecon-9.html"><span class="nav-num">09</span>Le Box Model</a></li>
+                <li><a href="lecon-10.html"><span class="nav-num">10</span>Flexbox</a></li>
+                <li><a href="lecon-11.html"><span class="nav-num">11</span>Mise en page</a></li>
+                <li><a href="lecon-12.html"><span class="nav-num">12</span>Responsive design</a></li>
+            </ul>
+        </nav>
+        <!-- PARTIE 3 : PROJET -->
+            <nav class="sidebar-nav">
+                <p class="sidebar-section-title">Partie 3 — Projet</p>
+                <ul>
+                    <li>
+                        <a href="projet.html">
+                            <span class="nav-num">13</span>
+                            Projet de fin
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+    </aside>
+
+    <main class="content">
+
+        <header class="lesson-header">
+            <span class="lesson-tag">Leçon 08 · CSS</span>
+            <h1>Couleurs et polices</h1>
+            <p class="lesson-intro">
+                Les couleurs et la typographie sont les deux éléments qui
+                donnent <em>l'identité visuelle</em> d'un site. Maîtriser
+                ces propriétés CSS te permet de reproduire n'importe quelle
+                charte graphique.
+            </p>
+        </header>
+
+        <!-- BLOC 1 : les formats de couleur -->
+        <section class="lesson-block">
+            <h2>Les formats de couleur</h2>
+            <p>
+                CSS accepte plusieurs façons d'écrire une couleur.
+                On utilise surtout l'hexadécimal et RGB dans la pratique.
+                Pour les transparences, on utilise <code>rgba()</code>.
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-attr">p</span> {
+  <span class="t-com">/* Nom de couleur (limité) */</span>
+  <span class="t-tag">color</span>: <span class="t-val">orange</span>;
+
+  <span class="t-com">/* Hexadécimal : #RRVVBB */</span>
+  <span class="t-tag">color</span>: <span class="t-val">#f97316</span>;
+
+  <span class="t-com">/* RGB : rouge, vert, bleu (0-255) */</span>
+  <span class="t-tag">color</span>: <span class="t-val">rgb(249, 115, 22)</span>;
+
+  <span class="t-com">/* RGBA : avec transparence (0 à 1) */</span>
+  <span class="t-tag">color</span>: <span class="t-val">rgba(249, 115, 22, 0.5)</span>;
+
+  <span class="t-com">/* Fond de l'élément */</span>
+  <span class="t-tag">background-color</span>: <span class="t-val">#f8fafc</span>;
+}</pre>
+                </div>
+                <div class="rendu-zone">
+                    <div style="display:flex;flex-direction:column;gap:8px;width:100%;font-size:0.88rem;">
+                        <div style="display:flex;align-items:center;gap:10px;">
+                            <div style="width:36px;height:36px;background:orange;border-radius:6px;flex-shrink:0;"></div>
+                            <div>
+                                <code>orange</code>
+                                <p style="font-size:0.75rem;color:#64748b;">Nom de couleur</p>
+                            </div>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:10px;">
+                            <div style="width:36px;height:36px;background:#f97316;border-radius:6px;flex-shrink:0;"></div>
+                            <div>
+                                <code>#f97316</code>
+                                <p style="font-size:0.75rem;color:#64748b;">Hexadécimal</p>
+                            </div>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:10px;">
+                            <div style="width:36px;height:36px;background:rgba(249,115,22,0.4);border-radius:6px;flex-shrink:0;border:1px solid #e2e8f0;"></div>
+                            <div>
+                                <code>rgba(..., 0.4)</code>
+                                <p style="font-size:0.75rem;color:#64748b;">Transparent à 40%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOC 2 : polices système vs Google Fonts -->
+        <section class="lesson-block">
+            <h2>Choisir une police : Google Fonts</h2>
+            <p>
+                Par défaut le navigateur affiche une police système basique.
+                Google Fonts propose des milliers de polices gratuites
+                qu'on importe dans le <code>&lt;head&gt;</code> du HTML,
+                puis on les applique en CSS avec <code>font-family</code>.
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-com">&lt;!-- Dans le &lt;head&gt; du HTML --&gt;</span>
+<span class="t-tag">&lt;link
+  <span class="t-attr">href</span>=<span class="t-val">"https://fonts.googleapis.com/
+  css2?family=Playfair+Display:wght@700
+  &family=Outfit:wght@400;500"</span>
+  <span class="t-attr">rel</span>=<span class="t-val">"stylesheet"</span>&gt;</span>
+
+<span class="t-com">/* Dans le CSS */</span>
+<span class="t-attr">h1</span> {
+  <span class="t-tag">font-family</span>: <span class="t-val">'Playfair Display', serif</span>;
+}
+<span class="t-attr">p</span> {
+  <span class="t-tag">font-family</span>: <span class="t-val">'Outfit', sans-serif</span>;
+}</pre>
+                </div>
+                <div class="rendu-zone">
+                    <div style="display:flex;flex-direction:column;gap:12px;">
+                        <div>
+                            <p style="font-size:0.75rem;color:#64748b;margin-bottom:4px;">Police par défaut :</p>
+                            <p style="font-family:serif;font-size:1.1rem;">Texte en police système</p>
+                        </div>
+                        <div>
+                            <p style="font-size:0.75rem;color:#64748b;margin-bottom:4px;">Google Fonts — Playfair Display :</p>
+                            <p style="font-family:'Georgia',serif;font-size:1.1rem;font-weight:700;font-style:italic;">Texte élégant avec serifs</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOC 3 : propriétés typographiques -->
+        <section class="lesson-block">
+            <h2>Les propriétés typographiques</h2>
+            <p>
+                CSS propose de nombreuses propriétés pour contrôler
+                l'apparence du texte. Voici les plus utilisées.
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-attr">p</span> {
+  <span class="t-com">/* Taille : px, rem, em, % */</span>
+  <span class="t-tag">font-size</span>: <span class="t-val">1rem</span>;
+
+  <span class="t-com">/* Graisse : 400=normal, 700=gras */</span>
+  <span class="t-tag">font-weight</span>: <span class="t-val">400</span>;
+
+  <span class="t-com">/* Hauteur de ligne */</span>
+  <span class="t-tag">line-height</span>: <span class="t-val">1.6</span>;
+
+  <span class="t-com">/* Espacement entre lettres */</span>
+  <span class="t-tag">letter-spacing</span>: <span class="t-val">0.05em</span>;
+
+  <span class="t-com">/* Alignement */</span>
+  <span class="t-tag">text-align</span>: <span class="t-val">center</span>;
+
+  <span class="t-com">/* Transformation */</span>
+  <span class="t-tag">text-transform</span>: <span class="t-val">uppercase</span>;
+}</pre>
+                </div>
+                <div class="rendu-zone">
+                    <div style="display:flex;flex-direction:column;gap:10px;width:100%;">
+                        <div>
+                            <p style="font-size:0.75rem;color:#64748b;margin-bottom:2px;">font-size: 1.4rem</p>
+                            <p style="font-size:1.4rem;line-height:1;">Texte grand</p>
+                        </div>
+                        <div>
+                            <p style="font-size:0.75rem;color:#64748b;margin-bottom:2px;">font-weight: 700</p>
+                            <p style="font-weight:700;">Texte en gras</p>
+                        </div>
+                        <div>
+                            <p style="font-size:0.75rem;color:#64748b;margin-bottom:2px;">letter-spacing: 3px + text-transform: uppercase</p>
+                            <p style="letter-spacing:3px;text-transform:uppercase;font-size:0.85rem;">espacé et majuscule</p>
+                        </div>
+                        <div>
+                            <p style="font-size:0.75rem;color:#64748b;margin-bottom:2px;">line-height: 1 vs 2</p>
+                            <div style="display:flex;gap:12px;">
+                                <p style="line-height:1;font-size:0.82rem;max-width:100px;">Ligne serrée ligne serrée</p>
+                                <p style="line-height:2;font-size:0.82rem;max-width:100px;">Ligne aérée ligne aérée</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOC 4 : variables CSS -->
+        <section class="lesson-block">
+            <h2>Les variables CSS — bonne pratique</h2>
+            <p>
+                Plutôt que de répéter <code>#f97316</code> partout dans ton CSS,
+                on centralise les couleurs et polices dans des variables.
+                Si on veut changer une couleur, on modifie un seul endroit.
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-com">/* On déclare les variables sur :root
+   (s'applique à toute la page) */</span>
+<span class="t-attr">:root</span> {
+  <span class="t-tag">--couleur-accent</span>: <span class="t-val">#f97316</span>;
+  <span class="t-tag">--couleur-texte</span>: <span class="t-val">#1e293b</span>;
+  <span class="t-tag">--police-titre</span>: <span class="t-val">'Playfair Display', serif</span>;
+}
+
+<span class="t-com">/* On les utilise avec var() */</span>
+<span class="t-attr">h1</span> {
+  <span class="t-tag">font-family</span>: <span class="t-val">var(--police-titre)</span>;
+  <span class="t-tag">color</span>: <span class="t-val">var(--couleur-accent)</span>;
+}</pre>
+                </div>
+                <div class="rendu-zone">
+                    <div style="font-size:0.85rem;">
+                        <p style="color:#64748b;margin-bottom:10px;">Avantage des variables :</p>
+                        <div style="background:#fef9f0;border:1px solid #fed7aa;border-radius:6px;padding:10px 14px;">
+                            <p style="margin-bottom:6px;">Tu changes <code style="color:#f97316;">--couleur-accent</code> une fois...</p>
+                            <p>...et <strong>tout le site</strong> change de couleur automatiquement.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="points-cles">
+            <h3>Points clés à retenir</h3>
+            <ul>
+                <li>Préfère le format <strong>hexadécimal</strong> pour les couleurs et <code>rgba()</code> pour les transparences</li>
+                <li>Google Fonts s'importe dans le <code>&lt;head&gt;</code> avant le lien vers le CSS</li>
+                <li>Toujours déclarer une <strong>police de secours</strong> : <code>'Outfit', sans-serif</code></li>
+                <li><code>line-height: 1.6</code> améliore grandement la lisibilité du texte</li>
+                <li>Centralise tes couleurs et polices dans des <strong>variables CSS</strong> sur <code>:root</code></li>
+            </ul>
+        </div>
+
+        <nav class="lesson-nav">
+            <a href="lecon-7.html" class="btn-nav">← Leçon 07</a>
+            <a href="lecon-9.html" class="btn-nav primary">Leçon 09 : Le Box Model →</a>
+        </nav>
+
+    </main>
+</div>
+</body>
+</html>

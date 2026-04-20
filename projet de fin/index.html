@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<!-- LEÇON 01 : <!DOCTYPE html> déclare la version HTML5 -->
+<!-- L'attribut lang="fr" indique la langue de la page -->
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- LEÇON 01 : viewport rend la page responsive sur mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- LEÇON 07 : on lie le fichier CSS externe ici -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- LEÇON 08 : import de Google Fonts dans le <head> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <title>Mon Site — Développeur Web</title>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         LEÇON 05 : <header> = en-tête sémantique de la page
+         ===================================================== -->
+    <header class="navbar">
+        <!-- LEÇON 05 : <nav> = balise de navigation -->
+        <nav class="nav-container">
+
+            <!-- Logo : un lien qui ramène à l'accueil -->
+            <!-- LEÇON 04 : <a href="#"> = lien -->
+            <a href="#accueil" class="logo">
+                <!-- LEÇON 02 : <strong> = texte important -->
+                <strong>Mon</strong>Site
+            </a>
+
+            <!-- LEÇON 03 : liste de navigation avec <ul> et <li> -->
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#services">Nos services</a></li>
+                <li><a href="#apropos">À propos</a></li>
+                <li><a href="#contact">Contactez-nous</a></li>
+            </ul>
+
+            <!-- Bouton hamburger pour mobile (affiché via CSS responsive) -->
+            <button class="menu-toggle" aria-label="Ouvrir le menu">&#9776;</button>
+
+        </nav>
+    </header>
+
+    <!-- =====================================================
+         LEÇON 05 : <main> = contenu principal de la page
+         (un seul <main> par page)
+         ===================================================== -->
+    <main>
+
+        <!-- =====================================================
+             SECTION HERO — LEÇON 11 : mise en page complète
+             ===================================================== -->
+        <!-- LEÇON 05 : <section> regroupe un thème de contenu -->
+        <!-- L'attribut id permet de créer des ancres de navigation -->
+        <section id="accueil" class="hero">
+            <div class="hero-content">
+
+                <!-- LEÇON 02 : hiérarchie des titres h1 → h2 -->
+                <!-- Un seul <h1> par page -->
+                <h1 class="hero-titre">
+                    Je construis des<br>
+                    <em>expériences web</em><br>
+                    mémorables.
+                </h1>
+
+                <!-- LEÇON 02 : <p> = paragraphe de texte -->
+                <p class="hero-texte">
+                    Développeur web passionné, je transforme vos idées
+                    en sites <strong>rapides</strong>, <strong>accessibles</strong>
+                    et <strong>visuellement soignés</strong>.
+                </p>
+
+                <!-- LEÇON 04 : liens stylisés comme des boutons -->
+                <div class="hero-cta">
+                    <a href="#services" class="btn btn-primaire">Voir mes services</a>
+                    <a href="#contact" class="btn btn-secondaire">Me contacter</a>
+                </div>
+
+            </div>
+
+            <!-- Décoration visuelle côté droit -->
+            <div class="hero-deco" aria-hidden="true">
+                <div class="deco-cercle"></div>
+                <div class="deco-tag">&lt;dev /&gt;</div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             SECTION SERVICES — LEÇON 10 : Flexbox
+             ===================================================== -->
+        <section id="services" class="services">
+            <div class="section-container">
+
+                <!-- LEÇON 02 : h2 pour les titres de section -->
+                <h2 class="section-titre">Nos services</h2>
+                <p class="section-sous-titre">
+                    Ce que je peux faire pour vous
+                </p>
+
+                <!-- LEÇON 10 : les cartes sont alignées avec Flexbox -->
+                <div class="services-grille">
+
+                    <!-- Carte 1 -->
+                    <article class="carte-service">
+                        <!-- LEÇON 04 : <img> avec src et alt obligatoire -->
+                        <div class="carte-icone" aria-hidden="true">🎨</div>
+                        <h3>Design UI</h3>
+                        <p>
+                            Création d'interfaces modernes, attrayantes
+                            et centrées sur l'expérience utilisateur.
+                        </p>
+                        <!-- LEÇON 03 : liste des points forts -->
+                        <ul class="carte-liste">
+                            <li>Maquettes sur mesure</li>
+                            <li>Charte graphique</li>
+                            <li>Design responsive</li>
+                        </ul>
+                    </article>
+
+                    <!-- Carte 2 -->
+                    <article class="carte-service carte-vedette">
+                        <div class="carte-icone" aria-hidden="true">💻</div>
+                        <h3>Développement Web</h3>
+                        <p>
+                            Intégration HTML/CSS pixel perfect et
+                            code propre, commenté et maintenable.
+                        </p>
+                        <ul class="carte-liste">
+                            <li>HTML5 sémantique</li>
+                            <li>CSS3 & Flexbox</li>
+                            <li>Sites responsive</li>
+                        </ul>
+                        <span class="badge">Populaire</span>
+                    </article>
+
+                    <!-- Carte 3 -->
+                    <article class="carte-service">
+                        <div class="carte-icone" aria-hidden="true">⚡</div>
+                        <h3>Optimisation</h3>
+                        <p>
+                            Amélioration des performances, du référencement
+                            et de l'accessibilité de votre site existant.
+                        </p>
+                        <ul class="carte-liste">
+                            <li>Audit complet</li>
+                            <li>Vitesse de chargement</li>
+                            <li>SEO technique</li>
+                        </ul>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             SECTION À PROPOS — LEÇON 09 : Box Model
+             ===================================================== -->
+        <section id="apropos" class="apropos">
+            <div class="section-container apropos-layout">
+
+                <!-- Colonne texte -->
+                <div class="apropos-texte">
+                    <h2 class="section-titre">À propos de nous</h2>
+
+                    <!-- LEÇON 02 : <em> pour accentuer un mot -->
+                    <p>
+                        Développeur web <em>autodidacte et passionné</em>, j'apprends
+                        en construisant des projets concrets. Ce site est lui-même
+                        le fruit de cette démarche.
+                    </p>
+                    <p>
+                        Ma philosophie : <strong>pratiquer encore et encore</strong>,
+                        comprendre chaque concept en profondeur plutôt que de
+                        copier sans réfléchir.
+                    </p>
+
+                    <!-- LEÇON 03 : liste ordonnée = ordre important -->
+                    <h3>Mon parcours</h3>
+                    <ol class="parcours-liste">
+                        <li>Découverte du HTML & CSS</li>
+                        <li>Apprentissage de la sémantique</li>
+                        <li>Maîtrise de Flexbox</li>
+                        <li>Responsive design</li>
+                        <li>Ce projet — mon premier site complet ✓</li>
+                    </ol>
+                </div>
+
+                <!-- Colonne compétences -->
+                <div class="apropos-competences">
+                    <h3>Compétences</h3>
+
+                    <!-- LEÇON 09 : chaque barre illustre le box model
+                         (width, padding, margin, border) -->
+                    <div class="competence">
+                        <div class="competence-label">
+                            <span>HTML5</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="barre-fond">
+                            <div class="barre-niveau" style="width: 90%"></div>
+                        </div>
+                    </div>
+
+                    <div class="competence">
+                        <div class="competence-label">
+                            <span>CSS3</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="barre-fond">
+                            <div class="barre-niveau" style="width: 80%"></div>
+                        </div>
+                    </div>
+
+                    <div class="competence">
+                        <div class="competence-label">
+                            <span>JavaScript</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="barre-fond">
+                            <div class="barre-niveau" style="width: 75%"></div>
+                        </div>
+                    </div>
+
+                    <div class="competence">
+                        <div class="competence-label">
+                            <span>Python</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="barre-fond">
+                            <div class="barre-niveau" style="width: 70%"></div>
+                        </div>
+                    </div>
+
+                    <!-- LEÇON 03 : liste non ordonnée des outils -->
+                    <h3 style="margin-top: 2rem;">Outils utilisés</h3>
+                    <ul class="outils-liste">
+                        <li>VS Code</li>
+                        <li>Git & GitHub</li>
+                        <li>Figma</li>
+                        <li>Chrome DevTools</li>
+                        <li>Cursor</li>
+                        <li>Antigravity</li>
+                        <li>MongoDB Compass</li>
+                    </ul>
+
+                    <h3 style="margin-top: 2rem;">Frameworks utilisés</h3>
+                    <ul class="outils-liste">
+                        <li>React</li>
+                        <li>Next.js</li>
+                        <li>Flask python</li>
+                        <li>React native</li>
+                        <li>Node.js</li>
+                        <li>Laravel</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- =====================================================
+             SECTION CONTACT — LEÇON 06 : Formulaires
+             ===================================================== -->
+        <section id="contact" class="contact">
+            <div class="section-container contact-layout">
+
+                <!-- Infos de contact -->
+                <div class="contact-infos">
+                    <h2 class="section-titre">Contactez-nous</h2>
+                    <p>
+                        Un projet en tête ? Une question ?
+                        N'hésitez pas à m'écrire, je réponds
+                        sous 48h.
+                    </p>
+
+                    <!-- LEÇON 03 : liste avec liens -->
+                    <ul class="contact-liste">
+                        <li>
+                            <!-- LEÇON 04 : href="mailto:" pour les emails -->
+                            <a href="mailto:campbellsehebi@gmail.com">
+                                📧 campbellsehebi@gmail.com
+                            </a>
+                        </li>
+                        <li>
+                            <!-- LEÇON 04 : href="tel:" pour les téléphones -->
+                            <a href="tel:+2250759392036">
+                                📞 +225 07 59 39 20 36
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com" target="_blank">
+                                🔗 github.com/monsite
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- =====================================================
+                     LEÇON 06 : Formulaire de contact complet
+                     ===================================================== -->
+                <form class="formulaire" action="#" method="post">
+
+                    <!-- LEÇON 06 : <label> lié à son <input> via "for" et "id" -->
+                    <div class="champ">
+                        <label for="nom">Votre nom</label>
+                        <input
+                            type="text"
+                            id="nom"
+                            name="nom"
+                            placeholder="Jean Dupont"
+                            required>
+                    </div>
+
+                    <div class="champ">
+                        <label for="email">Votre email</label>
+                        <!-- type="email" active la validation automatique -->
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="jean@exemple.com"
+                            required>
+                    </div>
+
+                    <div class="champ">
+                        <label for="sujet">Sujet</label>
+                        <!-- <select> = liste déroulante -->
+                        <select id="sujet" name="sujet">
+                            <option value="">Choisir un sujet...</option>
+                            <option value="projet">Nouveau projet</option>
+                            <option value="question">Question technique</option>
+                            <option value="autre">Autre</option>
+                        </select>
+                    </div>
+
+                    <div class="champ">
+                        <label for="message">Votre message</label>
+                        <!-- <textarea> = champ de texte multiligne -->
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="5"
+                            placeholder="Décrivez votre projet..."
+                            required></textarea>
+                    </div>
+
+                    <!-- LEÇON 06 : <button type="submit"> envoie le formulaire -->
+                    <button type="submit" class="btn btn-primaire btn-full">
+                        Envoyer le message →
+                    </button>
+
+                </form>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =====================================================
+         LEÇON 05 : <footer> = pied de page sémantique
+         ===================================================== -->
+    <footer class="footer">
+        <div class="footer-container">
+
+            <!-- Colonne logo + description -->
+            <div class="footer-col">
+                <p class="footer-logo"><strong>Mon</strong>Site</p>
+                <p class="footer-desc">
+                    Premier projet complet HTML & CSS.
+                    Construit avec passion et beaucoup de pratique.
+                </p>
+            </div>
+
+            <!-- Colonne navigation — LEÇON 03 : ul/li/a -->
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul class="footer-liens">
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#services">Nos services</a></li>
+                    <li><a href="#apropos">À propos</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Colonne notions apprises — LEÇON 03 : ol = liste ordonnée -->
+            <div class="footer-col">
+                <h4>Notions couvertes</h4>
+                <ol class="footer-liens">
+                    <li>Structure HTML</li>
+                    <li>Balises de texte</li>
+                    <li>Listes & liens</li>
+                    <li>Formulaires</li>
+                    <li>Flexbox & Box Model</li>
+                    <li>Responsive design</li>
+                </ol>
+            </div>
+
+        </div>
+
+        <!-- Barre de copyright -->
+        <div class="footer-bas">
+            <p>
+                &copy; 2025 MonSite — Projet de fin de parcours HTML &amp; CSS
+            </p>
+        </div>
+    </footer>
+
+    <!-- Petit script pour le menu mobile -->
+    <script>
+        const toggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        toggle.addEventListener('click', () => {
+            navLinks.classList.toggle('ouvert');
+        });
+    </script>
+
+</body>
+</html>

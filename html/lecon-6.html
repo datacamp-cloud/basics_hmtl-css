@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Leçon 06 — Formulaires</title>
+</head>
+<body>
+<div class="layout">
+
+    <aside class="sidebar">
+        <div class="sidebar-logo">HTML<span>&CSS</span></div>
+        <nav class="sidebar-nav">
+            <p class="sidebar-section-title">Partie 1 — HTML</p>
+            <ul>
+                <li><a href="lecon-1.html"><span class="nav-num">01</span>Structure d'une page</a></li>
+                <li><a href="lecon-2.html"><span class="nav-num">02</span>Balises de texte</a></li>
+                <li><a href="lecon-3.html"><span class="nav-num">03</span>Listes</a></li>
+                <li><a href="lecon-4.html"><span class="nav-num">04</span>Liens et images</a></li>
+                <li><a href="lecon-5.html"><span class="nav-num">05</span>Sémantique HTML</a></li>
+                <li><a href="lecon-6.html" class="active"><span class="nav-num">06</span>Formulaires</a></li>
+            </ul>
+        </nav>
+        <nav class="sidebar-nav">
+            <p class="sidebar-section-title">Partie 2 — CSS</p>
+            <ul>
+                <li><a href="lecon-7.html"><span class="nav-num">07</span>Introduction CSS</a></li>
+                <li><a href="lecon-8.html"><span class="nav-num">08</span>Couleurs et polices</a></li>
+                <li><a href="lecon-9.html"><span class="nav-num">09</span>Le Box Model</a></li>
+                <li><a href="lecon-10.html"><span class="nav-num">10</span>Flexbox</a></li>
+                <li><a href="lecon-11.html"><span class="nav-num">11</span>Mise en page</a></li>
+                <li><a href="lecon-12.html"><span class="nav-num">12</span>Responsive design</a></li>
+            </ul>
+        </nav>
+        <!-- PARTIE 3 : PROJET -->
+            <nav class="sidebar-nav">
+                <p class="sidebar-section-title">Partie 3 — Projet</p>
+                <ul>
+                    <li>
+                        <a href="projet.html">
+                            <span class="nav-num">13</span>
+                            Projet de fin
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+    </aside>
+
+    <main class="content">
+
+        <header class="lesson-header">
+            <span class="lesson-tag">Leçon 06 · HTML</span>
+            <h1>Les formulaires</h1>
+            <p class="lesson-intro">
+                Les formulaires permettent à l'utilisateur d'envoyer des données :
+                s'inscrire, se connecter, contacter, rechercher...
+                C'est la principale façon d'interagir avec un site web.
+            </p>
+        </header>
+
+        <!-- BLOC 1 : la balise form -->
+        <section class="lesson-block">
+            <h2>La balise &lt;form&gt;</h2>
+            <p>
+                Tout formulaire est enveloppé dans une balise <code>&lt;form&gt;</code>.
+                Elle a deux attributs importants : <code>action</code> (où envoyer les données)
+                et <code>method</code> (comment les envoyer — <code>get</code> ou <code>post</code>).
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-com">&lt;!-- action = URL de traitement des données --&gt;</span>
+<span class="t-com">&lt;!-- method = "post" pour envoyer des données --&gt;</span>
+<span class="t-tag">&lt;form <span class="t-attr">action</span>=<span class="t-val">"/envoyer"</span>
+      <span class="t-attr">method</span>=<span class="t-val">"post"</span>&gt;</span>
+
+  <span class="t-com">&lt;!-- Les champs vont ici --&gt;</span>
+
+<span class="t-tag">&lt;/form&gt;</span></pre>
+                </div>
+                <div class="rendu-zone">
+                    <div style="font-size:0.85rem;">
+                        <p style="margin-bottom:8px;color:#64748b;">Les deux méthodes :</p>
+                        <div style="display:flex;flex-direction:column;gap:8px;">
+                            <div style="background:#eff6ff;padding:8px 12px;border-radius:6px;border:1px solid #bfdbfe;">
+                                <strong style="color:#1d4ed8;">GET</strong>
+                                <p style="font-size:0.8rem;color:#475569;margin-top:2px;">Données visibles dans l'URL — pour les recherches</p>
+                            </div>
+                            <div style="background:#f0fdf4;padding:8px 12px;border-radius:6px;border:1px solid #bbf7d0;">
+                                <strong style="color:#166534;">POST</strong>
+                                <p style="font-size:0.8rem;color:#475569;margin-top:2px;">Données cachées — pour les formulaires de contact</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOC 2 : label + input -->
+        <section class="lesson-block">
+            <h2>Le duo &lt;label&gt; + &lt;input&gt;</h2>
+            <p>
+                Chaque champ de saisie est accompagné d'un <code>&lt;label&gt;</code>
+                qui le décrit. Le lien entre les deux se fait via
+                <code>for</code> sur le label et <code>id</code> sur l'input —
+                ils doivent avoir la même valeur. Cliquer sur le label
+                active automatiquement le champ correspondant.
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-com">&lt;!-- for="nom" ↔ id="nom" : ils sont liés --&gt;</span>
+<span class="t-tag">&lt;label <span class="t-attr">for</span>=<span class="t-val">"nom"</span>&gt;</span>Votre nom<span class="t-tag">&lt;/label&gt;</span>
+<span class="t-tag">&lt;input
+  <span class="t-attr">type</span>=<span class="t-val">"text"</span>
+  <span class="t-attr">id</span>=<span class="t-val">"nom"</span>
+  <span class="t-attr">name</span>=<span class="t-val">"nom"</span>
+  <span class="t-attr">placeholder</span>=<span class="t-val">"Jean Dupont"</span>
+  <span class="t-attr">required</span>&gt;</span></pre>
+                </div>
+                <div class="rendu-zone">
+                    <div style="display:flex;flex-direction:column;gap:6px;width:100%;">
+                        <label for="demo-nom" style="font-size:0.85rem;font-weight:500;color:#374151;">Votre nom</label>
+                        <input type="text" id="demo-nom" placeholder="Jean Dupont" style="padding:8px 12px;border:1px solid #d1d5db;border-radius:6px;font-size:0.9rem;outline:none;width:100%;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOC 3 : les types d'input -->
+        <section class="lesson-block">
+            <h2>Les différents types d'&lt;input&gt;</h2>
+            <p>
+                L'attribut <code>type</code> change complètement le comportement
+                du champ. Le navigateur adapte automatiquement le clavier
+                sur mobile et la validation des données. Il en existe de nombreux types : <code>text</code>, <code>email</code>, <code>password</code>, <code>phone</code>, <code>checkbox</code>, <code>radio</code>...
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-com">&lt;!-- Texte libre --&gt;</span>
+<span class="t-tag">&lt;input <span class="t-attr">type</span>=<span class="t-val">"text"</span>&gt;</span>
+
+<span class="t-com">&lt;!-- Email : valide le format --&gt;</span>
+<span class="t-tag">&lt;input <span class="t-attr">type</span>=<span class="t-val">"email"</span>&gt;</span>
+
+<span class="t-com">&lt;!-- Mot de passe : masque les caractères --&gt;</span>
+<span class="t-tag">&lt;input <span class="t-attr">type</span>=<span class="t-val">"password"</span>&gt;</span>
+
+<span class="t-com">&lt;!-- Téléphone --&gt;</span>
+<span class="t-tag">&lt;input <span class="t-attr">type</span>=<span class="t-val">"phone"</span>&gt;</span>
+
+<span class="t-com">&lt;!-- Case à cocher --&gt;</span>
+<span class="t-tag">&lt;input <span class="t-attr">type</span>=<span class="t-val">"checkbox"</span>&gt;</span>
+
+<span class="t-com">&lt;!-- Bouton radio --&gt;</span>
+<span class="t-tag">&lt;input <span class="t-attr">type</span>=<span class="t-val">"radio"</span>&gt;</span></pre>
+                </div>
+                <div class="rendu-zone">
+                    <div style="display:flex;flex-direction:column;gap:10px;width:100%;font-size:0.85rem;">
+                        <div>
+                            <p style="color:#64748b;font-size:0.75rem;margin-bottom:3px;">type="text"</p>
+                            <input type="text" placeholder="Texte libre" style="padding:6px 10px;border:1px solid #d1d5db;border-radius:5px;width:100%;font-size:0.85rem;">
+                        </div>
+                        <div>
+                            <p style="color:#64748b;font-size:0.75rem;margin-bottom:3px;">type="email"</p>
+                            <input type="email" placeholder="vous@exemple.com" style="padding:6px 10px;border:1px solid #d1d5db;border-radius:5px;width:100%;font-size:0.85rem;">
+                        </div>
+                        <div>
+                            <p style="color:#64748b;font-size:0.75rem;margin-bottom:3px;">type="password"</p>
+                            <input type="password" value="secret" style="padding:6px 10px;border:1px solid #d1d5db;border-radius:5px;width:100%;font-size:0.85rem;">
+                        </div>
+                        <div style="display:flex; flex-direction: column;align-items: flex-start;gap:8px;">
+                            <p style="color: #64748b;font-size:0.75rem;margin-bottom:3px; ">type="phone"</p>
+                            <input type="phone" placeholder="0759392036" style="padding:6px 10px;border:1px solid #d1d5db;border-radius:5px;width:100%;font-size:0.85rem;">
+                        </div>
+                        <div style="display:flex; align-items:center;gap:8px;">
+                            <p style="color: #64748b;font-size:0.75rem;margin-bottom:3px; ">type="checkbox"</p>
+                            <input type="checkbox" id="d-cb" checked>
+                            <label for="d-cb" style="font-size:0.85rem;">J'accepte les conditions</label>
+                        </div>
+                        <div style="display:flex;align-items: center;gap:8px;">
+                            <p style="color: #64748b;font-size:0.75rem;margin-bottom:3px; ">type="radio"</p>
+                            <input type="radio" id="d-cb" value="yes" checked>
+                            <label for="d-cb" style="font-size:0.85rem;">Yes</label>
+                            <input type="radio" id="d-cb" value="no" >
+                            <label for="d-cb" style="font-size:0.85rem;">No</label>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOC 4 : select + textarea + button -->
+        <section class="lesson-block">
+            <h2>&lt;select&gt;, &lt;textarea&gt; et &lt;button&gt;</h2>
+            <p>
+                Ces trois éléments complètent la palette des champs de formulaire.
+                <code>&lt;select&gt;</code> crée une liste déroulante,
+                <code>&lt;textarea&gt;</code> un champ de texte multiligne,
+                et <code>&lt;button type="submit"&gt;</code> envoie le formulaire.
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-com">&lt;!-- Liste déroulante --&gt;</span>
+<span class="t-tag">&lt;select <span class="t-attr">name</span>=<span class="t-val">"sujet"</span>&gt;</span>
+  <span class="t-tag">&lt;option <span class="t-attr">value</span>=<span class="t-val">""</span>&gt;</span>Choisir...<span class="t-tag">&lt;/option&gt;</span>
+  <span class="t-tag">&lt;option <span class="t-attr">value</span>=<span class="t-val">"projet"</span>&gt;</span>Projet<span class="t-tag">&lt;/option&gt;</span>
+  <span class="t-tag">&lt;option <span class="t-attr">value</span>=<span class="t-val">"info"</span>&gt;</span>Information<span class="t-tag">&lt;/option&gt;</span>
+<span class="t-tag">&lt;/select&gt;</span>
+
+<span class="t-com">&lt;!-- Zone de texte multiligne --&gt;</span>
+<span class="t-tag">&lt;textarea
+  <span class="t-attr">name</span>=<span class="t-val">"message"</span>
+  <span class="t-attr">rows</span>=<span class="t-val">"4"</span>
+  <span class="t-attr">placeholder</span>=<span class="t-val">"Votre message..."</span>&gt;</span>
+<span class="t-tag">&lt;/textarea&gt;</span>
+
+<span class="t-com">&lt;!-- Bouton d'envoi --&gt;</span>
+<span class="t-tag">&lt;button <span class="t-attr">type</span>=<span class="t-val">"submit"</span>&gt;</span>
+  Envoyer
+<span class="t-tag">&lt;/button&gt;</span></pre>
+                </div>
+                <div class="rendu-zone">
+                    <div style="display:flex;flex-direction:column;gap:10px;width:100%;">
+                        <select style="padding:7px 10px;border:1px solid #d1d5db;border-radius:5px;font-size:0.85rem;width:100%;">
+                            <option>Choisir...</option>
+                            <option>Projet</option>
+                            <option>Information</option>
+                        </select>
+                        <textarea rows="3" placeholder="Votre message..." style="padding:8px 10px;border:1px solid #d1d5db;border-radius:5px;font-size:0.85rem;width:100%;resize:vertical;"></textarea>
+                        <button type="submit" style="padding:8px 16px;background:#f97316;color:white;border:none;border-radius:6px;cursor:pointer;font-size:0.9rem;font-weight:500;">Envoyer →</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="points-cles">
+            <h3>Points clés à retenir</h3>
+            <ul>
+                <li>Tout formulaire est dans un <code>&lt;form&gt;</code> avec <code>action</code> et <code>method</code></li>
+                <li>Le <code>for</code> du label doit correspondre à l'<code>id</code> de l'input</li>
+                <li><code>type="email"</code> valide automatiquement le format — pas besoin de JavaScript</li>
+                <li><code>required</code> rend un champ obligatoire</li>
+                <li><code>&lt;button type="submit"&gt;</code> envoie le formulaire — c'est son rôle par défaut</li>
+            </ul>
+        </div>
+
+        <nav class="lesson-nav">
+            <a href="lecon-5.html" class="btn-nav">← Leçon 05</a>
+            <a href="lecon-7.html" class="btn-nav primary">Leçon 07 : Introduction CSS →</a>
+        </nav>
+
+    </main>
+</div>
+</body>
+</html>

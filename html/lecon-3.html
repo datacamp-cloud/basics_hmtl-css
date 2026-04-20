@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Leçon 03 — Les listes</title>
+</head>
+<body>
+<div class="layout">
+
+    <aside class="sidebar">
+        <div class="sidebar-logo">HTML<span>&CSS</span></div>
+        <nav class="sidebar-nav">
+            <p class="sidebar-section-title">Partie 1 — HTML</p>
+            <ul>
+                <li><a href="lecon-1.html"><span class="nav-num">01</span>Structure d'une page</a></li>
+                <li><a href="lecon-2.html"><span class="nav-num">02</span>Balises de texte</a></li>
+                <li><a href="lecon-3.html" class="active"><span class="nav-num">03</span>Listes</a></li>
+                <li><a href="lecon-4.html"><span class="nav-num">04</span>Liens et images</a></li>
+                <li><a href="lecon-5.html"><span class="nav-num">05</span>Sémantique HTML</a></li>
+                <li><a href="lecon-6.html"><span class="nav-num">06</span>Formulaires</a></li>
+            </ul>
+        </nav>
+        <nav class="sidebar-nav">
+            <p class="sidebar-section-title">Partie 2 — CSS</p>
+            <ul>
+                <li><a href="lecon-7.html"><span class="nav-num">07</span>Introduction CSS</a></li>
+                <li><a href="lecon-8.html"><span class="nav-num">08</span>Couleurs et polices</a></li>
+                <li><a href="lecon-9.html"><span class="nav-num">09</span>Le Box Model</a></li>
+                <li><a href="lecon-10.html"><span class="nav-num">10</span>Flexbox</a></li>
+                <li><a href="lecon-11.html"><span class="nav-num">11</span>Mise en page</a></li>
+                <li><a href="lecon-12.html"><span class="nav-num">12</span>Responsive design</a></li>
+            </ul>
+        </nav>
+        <!-- PARTIE 3 : PROJET -->
+            <nav class="sidebar-nav">
+                <p class="sidebar-section-title">Partie 3 — Projet</p>
+                <ul>
+                    <li>
+                        <a href="projet.html">
+                            <span class="nav-num">13</span>
+                            Projet de fin
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+    </aside>
+
+    <main class="content">
+
+        <header class="lesson-header">
+            <span class="lesson-tag">Leçon 03 · HTML</span>
+            <h1>Les listes</h1>
+            <p class="lesson-intro">
+                Les listes sont partout sur le web : menus de navigation, ingrédients,
+                étapes d'un tutoriel... HTML propose deux types selon que l'ordre
+                des éléments a de l'importance ou non.
+            </p>
+        </header>
+
+        <!-- BLOC 1 : ul -->
+        <section class="lesson-block">
+            <h2>La liste non ordonnée &lt;ul&gt;</h2>
+            <p>
+                <code>&lt;ul&gt;</code> signifie <em>unordered list</em>. On l'utilise quand
+                l'ordre des éléments n'a pas d'importance. Chaque élément est
+                encadré par une balise <code>&lt;li&gt;</code> (list item).
+                Le navigateur affiche des puces par défaut.
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-tag">&lt;ul&gt;</span>
+  <span class="t-tag">&lt;li&gt;</span>HTML<span class="t-tag">&lt;/li&gt;</span>
+  <span class="t-tag">&lt;li&gt;</span>CSS<span class="t-tag">&lt;/li&gt;</span>
+  <span class="t-tag">&lt;li&gt;</span>JavaScript<span class="t-tag">&lt;/li&gt;</span>
+<span class="t-tag">&lt;/ul&gt;</span></pre>
+                </div>
+                <div class="rendu-zone">
+                    <ul style="padding-left:1.25rem;">
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOC 2 : ol -->
+        <section class="lesson-block">
+            <h2>La liste ordonnée &lt;ol&gt;</h2>
+            <p>
+                <code>&lt;ol&gt;</code> signifie <em>ordered list</em>. On l'utilise quand
+                l'ordre des éléments est important : des étapes, un classement,
+                une procédure. Le navigateur numérote automatiquement les éléments.
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-tag">&lt;ol&gt;</span>
+  <span class="t-tag">&lt;li&gt;</span>Ouvrir le fichier HTML<span class="t-tag">&lt;/li&gt;</span>
+  <span class="t-tag">&lt;li&gt;</span>Écrire le code<span class="t-tag">&lt;/li&gt;</span>
+  <span class="t-tag">&lt;li&gt;</span>Sauvegarder<span class="t-tag">&lt;/li&gt;</span>
+  <span class="t-tag">&lt;li&gt;</span>Ouvrir dans le navigateur<span class="t-tag">&lt;/li&gt;</span>
+<span class="t-tag">&lt;/ol&gt;</span></pre>
+                </div>
+                <div class="rendu-zone">
+                    <ol style="padding-left:1.25rem;">
+                        <li>Ouvrir le fichier HTML</li>
+                        <li>Écrire le code</li>
+                        <li>Sauvegarder</li>
+                        <li>Ouvrir dans le navigateur</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOC 3 : listes imbriquées -->
+        <section class="lesson-block">
+            <h2>Les listes imbriquées</h2>
+            <p>
+                On peut placer une liste à l'intérieur d'un <code>&lt;li&gt;</code>
+                pour créer des sous-niveaux. C'est utile pour les menus complexes
+                ou les plans de documents.
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-tag">&lt;ul&gt;</span>
+  <span class="t-tag">&lt;li&gt;</span>Langages web
+    <span class="t-tag">&lt;ul&gt;</span>
+      <span class="t-tag">&lt;li&gt;</span>HTML<span class="t-tag">&lt;/li&gt;</span>
+      <span class="t-tag">&lt;li&gt;</span>CSS<span class="t-tag">&lt;/li&gt;</span>
+    <span class="t-tag">&lt;/ul&gt;</span>
+  <span class="t-tag">&lt;/li&gt;</span>
+  <span class="t-tag">&lt;li&gt;</span>Outils
+    <span class="t-tag">&lt;ul&gt;</span>
+      <span class="t-tag">&lt;li&gt;</span>VS Code<span class="t-tag">&lt;/li&gt;</span>
+      <span class="t-tag">&lt;li&gt;</span>Git<span class="t-tag">&lt;/li&gt;</span>
+    <span class="t-tag">&lt;/ul&gt;</span>
+  <span class="t-tag">&lt;/li&gt;</span>
+<span class="t-tag">&lt;/ul&gt;</span></pre>
+                </div>
+                <div class="rendu-zone">
+                    <ul style="padding-left:1.25rem;">
+                        <li>Langages web
+                            <ul style="padding-left:1.25rem; margin-top:4px;">
+                                <li>HTML</li>
+                                <li>CSS</li>
+                            </ul>
+                        </li>
+                        <li style="margin-top:6px;">Outils
+                            <ul style="padding-left:1.25rem; margin-top:4px;">
+                                <li>VS Code</li>
+                                <li>Git</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOC 4 : cas d'usage réel -->
+        <section class="lesson-block">
+            <h2>Cas concret : la navigation</h2>
+            <p>
+                Les menus de navigation sont construits avec des listes.
+                Le CSS s'occupera de les afficher horizontalement.
+                C'est exactement comme ça qu'est fait le menu de ce cours !
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-tag">&lt;nav&gt;</span>
+  <span class="t-tag">&lt;ul&gt;</span>
+    <span class="t-tag">&lt;li&gt;</span><span class="t-tag">&lt;a <span class="t-attr">href</span>=<span class="t-val">"#"</span>&gt;</span>Accueil<span class="t-tag">&lt;/a&gt;</span><span class="t-tag">&lt;/li&gt;</span>
+    <span class="t-tag">&lt;li&gt;</span><span class="t-tag">&lt;a <span class="t-attr">href</span>=<span class="t-val">"#"</span>&gt;</span>Services<span class="t-tag">&lt;/a&gt;</span><span class="t-tag">&lt;/li&gt;</span>
+    <span class="t-tag">&lt;li&gt;</span><span class="t-tag">&lt;a <span class="t-attr">href</span>=<span class="t-val">"#"</span>&gt;</span>Contact<span class="t-tag">&lt;/a&gt;</span><span class="t-tag">&lt;/li&gt;</span>
+  <span class="t-tag">&lt;/ul&gt;</span>
+<span class="t-tag">&lt;/nav&gt;</span></pre>
+                </div>
+                <div class="rendu-zone">
+                    <nav>
+                        <ul style="display:flex;gap:1.5rem;list-style:none;padding:0;">
+                            <li><a href="#" style="color:#f97316;font-weight:500;">Accueil</a></li>
+                            <li><a href="#" style="color:#f97316;font-weight:500;">Services</a></li>
+                            <li><a href="#" style="color:#f97316;font-weight:500;">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </section>
+
+        <div class="points-cles">
+            <h3>Points clés à retenir</h3>
+            <ul>
+                <li><code>&lt;ul&gt;</code> pour les listes sans ordre (puces), <code>&lt;ol&gt;</code> pour les listes ordonnées (numéros)</li>
+                <li>Chaque élément d'une liste est toujours dans un <code>&lt;li&gt;</code></li>
+                <li>On peut imbriquer des listes en plaçant un <code>&lt;ul&gt;</code> à l'intérieur d'un <code>&lt;li&gt;</code></li>
+                <li>Les menus de navigation sont des listes <code>&lt;ul&gt;</code> + <code>&lt;li&gt;</code> + <code>&lt;a&gt;</code></li>
+            </ul>
+        </div>
+
+        <nav class="lesson-nav">
+            <a href="lecon-2.html" class="btn-nav">← Leçon 02</a>
+            <a href="lecon-4.html" class="btn-nav primary">Leçon 04 : Liens et images →</a>
+        </nav>
+
+    </main>
+</div>
+</body>
+</html>

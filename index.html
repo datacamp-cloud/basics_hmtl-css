@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Apprendre HTML & CSS</title>
+</head>
+<body>
+
+    <div class="layout">
+
+        <!-- ==============================
+             SIDEBAR : navigation latérale
+             ============================== -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                HTML<span>&CSS</span>
+            </div>
+
+            <!-- PARTIE 1 : HTML -->
+            <nav class="sidebar-nav">
+                <p class="sidebar-section-title">Partie 1 — HTML</p>
+                <ul>
+                    <li>
+                        <a href="/html/lecon-1.html">
+                            <span class="nav-num">01</span>
+                            Structure d'une page
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/html/lecon-2.html">
+                            <span class="nav-num">02</span>
+                            Balises de texte
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/html/lecon-3.html">
+                            <span class="nav-num">03</span>
+                            Listes
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/html/lecon-4.html">
+                            <span class="nav-num">04</span>
+                            Liens et images
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/html/lecon-5.html">
+                            <span class="nav-num">05</span>
+                            Sémantique HTML
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/html/lecon-6.html">
+                            <span class="nav-num">06</span>
+                            Formulaires
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- PARTIE 2 : CSS -->
+            <nav class="sidebar-nav">
+                <p class="sidebar-section-title">Partie 2 — CSS</p>
+                <ul>
+                    <li>
+                        <a href="/html/lecon-7.html">
+                            <span class="nav-num">07</span>
+                            Introduction CSS
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/html/lecon-8.html">
+                            <span class="nav-num">08</span>
+                            Couleurs et polices
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/html/lecon-9.html">
+                            <span class="nav-num">09</span>
+                            Le Box Model
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/html/lecon-10.html">
+                            <span class="nav-num">10</span>
+                            Flexbox
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/html/lecon-11.html">
+                            <span class="nav-num">11</span>
+                            Mise en page
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/html/lecon-12.html">
+                            <span class="nav-num">12</span>
+                            Responsive design
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- PARTIE 3 : PROJET -->
+            <nav class="sidebar-nav">
+                <p class="sidebar-section-title">Partie 3 — Projet</p>
+                <ul>
+                    <li>
+                        <a href="projet.html">
+                            <span class="nav-num">13</span>
+                            Projet de fin
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+        </aside>
+
+        <!-- ==============================
+             CONTENU PRINCIPAL
+             ============================== -->
+        <main class="content">
+
+            <!-- HERO : introduction du cours -->
+            <section class="hero">
+                <h1>Apprendre<br><span>HTML & CSS</span><br>de zéro.</h1>
+                <p>
+                    Un cours pratique pour comprendre comment les sites web sont construits.
+                    Pas de blabla, chaque concept est illustré par un exemple concret.
+                </p>
+                <a href="/html/lecon-1.html" class="btn-nav primary">
+                    Commencer le cours →
+                </a>
+            </section>
+
+            <!-- GRILLE DES LEÇONS : Partie HTML -->
+            <h2 class="section-title">Partie 1 — HTML</h2>
+            <div class="lecons-grid">
+
+                <a href="/html/lecon-1.html" class="lecon-card">
+                    <p class="lecon-card-num">Leçon 01</p>
+                    <h3>Structure d'une page</h3>
+                    <p>DOCTYPE, html, head, body — les fondations.</p>
+                </a>
+
+                <a href="/html/lecon-2.html" class="lecon-card">
+                    <p class="lecon-card-num">Leçon 02</p>
+                    <h3>Balises de texte</h3>
+                    <p>Titres, paragraphes, gras, italique.</p>
+                </a>
+
+                <a href="/html/lecon-3.html" class="lecon-card">
+                    <p class="lecon-card-num">Leçon 03</p>
+                    <h3>Listes</h3>
+                    <p>Listes ordonnées et non ordonnées.</p>
+                </a>
+
+                <a href="/html/lecon-4.html" class="lecon-card">
+                    <p class="lecon-card-num">Leçon 04</p>
+                    <h3>Liens et images</h3>
+                    <p>Créer des liens et intégrer des images.</p>
+                </a>
+
+                <a href="/html/lecon-5.html" class="lecon-card">
+                    <p class="lecon-card-num">Leçon 05</p>
+                    <h3>Sémantique HTML</h3>
+                    <p>header, nav, main, section, footer.</p>
+                </a>
+
+                <a href="/html/lecon-6.html" class="lecon-card">
+                    <p class="lecon-card-num">Leçon 06</p>
+                    <h3>Formulaires</h3>
+                    <p>Créer des formulaires interactifs.</p>
+                </a>
+
+            </div>
+
+            <!-- GRILLE DES LEÇONS : Partie CSS -->
+            <h2 class="section-title" style="margin-top: 2.5rem;">Partie 2 — CSS</h2>
+            <div class="lecons-grid">
+
+                <a href="/html/lecon-7.html" class="lecon-card">
+                    <p class="lecon-card-num">Leçon 07</p>
+                    <h3>Introduction CSS</h3>
+                    <p>Sélecteurs, propriétés, lier un fichier CSS.</p>
+                </a>
+
+                <a href="/html/lecon-8.html" class="lecon-card">
+                    <p class="lecon-card-num">Leçon 08</p>
+                    <h3>Couleurs et polices</h3>
+                    <p>color, font-size, font-family, Google Fonts.</p>
+                </a>
+
+                <a href="/html/lecon-9.html" class="lecon-card">
+                    <p class="lecon-card-num">Leçon 09</p>
+                    <h3>Le Box Model</h3>
+                    <p>margin, padding, border, width, height.</p>
+                </a>
+
+                <a href="/html/lecon-10.html" class="lecon-card">
+                    <p class="lecon-card-num">Leçon 10</p>
+                    <h3>Flexbox</h3>
+                    <p>Mise en page moderne avec display: flex.</p>
+                </a>
+
+                <a href="/html/lecon-11.html" class="lecon-card">
+                    <p class="lecon-card-num">Leçon 11</p>
+                    <h3>Mise en page</h3>
+                    <p>Construire une vraie navbar et un hero.</p>
+                </a>
+
+                <a href="/html/lecon-12.html" class="lecon-card">
+                    <p class="lecon-card-num">Leçon 12</p>
+                    <h3>Responsive design</h3>
+                    <p>Adapter le site à toutes les tailles d'écran.</p>
+                </a>
+
+            </div>
+
+            <!-- GRILLE DES LEÇONS : Partie Projet -->
+            <h2 class="section-title" style="margin-top: 2.5rem;">Partie 3 — Projet de Fin</h2>
+            <div class="lecons-grid">
+
+                <a href="projet.html" class="lecon-card">
+                    <h3>Projet de Fin</h3>
+                    <p>
+                        Vous allez créer un site portfolio complet en appliquant tout ce que vous avez appris : HTML sémantique, styles CSS, Flexbox et responsive design.
+                        Suivez les étapes recommandées pour construire une page claire, moderne et fonctionnelle.
+                    </p>
+                </a>
+            </div>
+
+        </main>
+    </div>
+
+</body>
+</html>

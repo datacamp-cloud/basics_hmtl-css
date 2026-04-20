@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Projet final : Construire un site complet</title>
+</head>
+<body>
+<div class="layout">
+
+    <aside class="sidebar">
+        <div class="sidebar-logo">HTML<span>&CSS</span></div>
+        <nav class="sidebar-nav">
+            <p class="sidebar-section-title">Partie 1 : HTML</p>
+            <ul>
+                <li><a href="/html/lecon-1.html"><span class="nav-num">01</span>Structure d'une page</a></li>
+                <li><a href="/html/lecon-2.html"><span class="nav-num">02</span>Balises de texte</a></li>
+                <li><a href="/html/lecon-3.html"><span class="nav-num">03</span>Listes</a></li>
+                <li><a href="/html/lecon-4.html"><span class="nav-num">04</span>Liens et images</a></li>
+                <li><a href="/html/lecon-5.html"><span class="nav-num">05</span>Sémantique HTML</a></li>
+                <li><a href="/html/lecon-6.html"><span class="nav-num">06</span>Formulaires</a></li>
+            </ul>
+        </nav>
+        <nav class="sidebar-nav">
+            <p class="sidebar-section-title">Partie 2 : CSS</p>
+            <ul>
+                <li><a href="/html/lecon-7.html"><span class="nav-num">07</span>Introduction CSS</a></li>
+                <li><a href="/html/lecon-8.html"><span class="nav-num">08</span>Couleurs et polices</a></li>
+                <li><a href="/html/lecon-9.html"><span class="nav-num">09</span>Le Box Model</a></li>
+                <li><a href="/html/lecon-10.html"><span class="nav-num">10</span>Flexbox</a></li>
+                <li><a href="/html/lecon-11.html"><span class="nav-num">11</span>Mise en page</a></li>
+                <li><a href="/html/lecon-12.html"><span class="nav-num">12</span>Responsive design</a></li>
+            </ul>
+        </nav>
+        <nav class="sidebar-nav">
+            <p class="sidebar-section-title">Projet final</p>
+            <ul>
+                <li><a href="#" class="active"><span class="nav-num">P</span>Portfolio</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="content">
+
+        <header class="lesson-header">
+            <span class="lesson-tag">Projet final</span>
+            <h1>Construis un site complet</h1>
+            <p class="lesson-intro">
+                Après les 12 leçons, c'est le moment d'assembler tes compétences.
+                Tu vas créer un site web fonctionnel, responsive et visuellement attractif.
+            </p>
+        </header>
+
+        <section class="lesson-block">
+            <h2>Objectif du projet</h2>
+            <p>
+                Ce site est un modèle portfolio : il montre une structure simple et complète avec une navigation, un hero, des services, une section à propos et un formulaire de contact.
+                Tu peux modifier les informations, les titres et les services pour en faire ton propre projet, mais suis d'abord les étapes recommandées.
+            </p>
+            <ul>
+                <li>Une navbar claire avec des liens.</li>
+                <li>Un hero fort avec un titre, un texte et un bouton.</li>
+                <li>Des cartes de services alignées avec Flexbox.</li>
+                <li>Une section à propos et un formulaire de contact.</li>
+                <li>Une mise en page responsive qui s'adapte au mobile.</li>
+            </ul>
+        </section>
+
+        <section class="lesson-block">
+            <h2>Comment construire ce projet</h2>
+            <p>
+                Je te conseille de faire le projet en 3 étapes : structure, style, puis responsive.
+                Commence par poser le HTML, puis ajoute des styles simples, et enfin adapte ton site aux petits écrans.
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-attr">header</span> {
+  <span class="t-tag">display</span>: <span class="t-val">flex</span>;
+  <span class="t-tag">justify-content</span>: <span class="t-val">space-between</span>;
+  <span class="t-tag">align-items</span>: <span class="t-val">center</span>;
+  <span class="t-tag">padding</span>: <span class="t-val">20px 24px</span>;
+}
+
+<span class="t-attr">.services</span> {
+  <span class="t-tag">display</span>: <span class="t-val">flex</span>;
+  <span class="t-tag">gap</span>: <span class="t-val">18px</span>;
+  <span class="t-tag">flex-wrap</span>: <span class="t-val">wrap</span>;
+}
+
+<span class="t-attr">img</span> {
+  <span class="t-tag">max-width</span>: <span class="t-val">100%</span>;
+  <span class="t-tag">height</span>: <span class="t-val">auto</span>;
+}
+</pre>
+                </div>
+                <div class="rendu-zone">
+                    <div style="padding:16px;background:#eff6ff;border-radius:14px;">
+                        <p style="margin:0;color:#0f172a;font-weight:700;">Structure → Style → Responsive</p>
+                        <p style="margin:8px 0 0;color:#334155;">C'est un modèle à personnaliser : remplace les textes et les services par tes propres idées, mais garde le bon ordre de travail.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-block">
+            <h2>Étapes pour reproduire ce portfolio</h2>
+            <ol>
+                <li>Crée le squelette HTML avec les sections suivantes : <code>header</code>, <code>.hero</code>, <code>.services</code>, <code>.apropos</code>, <code>.contact</code>, et <code>footer</code>.</li>
+                <li>Ajoute les classes de structure importantes : <code>.nav-container</code>, <code>.services-grille</code>, <code>.carte-service</code>, <code>.apropos-layout</code>, <code>.contact-layout</code>.</li>
+                <li>Rédige le CSS de base : couleurs, typographie, marges/paddings, bordures et arrière-plans.</li>
+                <li>Utilise Flexbox pour aligner la barre de navigation, la grille de services et les colonnes de la section à propos et contact.</li>
+                <li>Ajoute un style de base pour les boutons, les cartes et le formulaire afin que le rendu soit propre et cohérent.</li>
+                <li>Crée des media queries pour les écrans plus petits : empile les sections et affiche le menu mobile.</li>
+                <li>Teste ton site dans le navigateur, puis compare avec le modèle et personnalise les textes et services.</li>
+            </ol>
+        </section>
+
+        <section class="lesson-block">
+            <h2>Conseils pour réussir</h2>
+            <ul>
+                <li>Commence par une version mobile d'abord si tu veux.</li>
+                <li>Utilise des noms de classes simples : <code>.navbar</code>, <code>.hero</code>, <code>.card</code>.</li>
+                <li>Teste ton site dans le navigateur et redimensionne la fenêtre.</li>
+                <li>Relis chaque section de ton HTML pour vérifier la sémantique.</li>
+                <li>Sois libre sur le contenu et les couleurs : le projet est aussi personnel.</li>
+            </ul>
+        </section>
+
+        <section class="lesson-block">
+            <h2>Ce que je te recommande</h2>
+            <p>
+                Ne te contente pas de copier la page finale. Essaie d'abord de faire ta propre version puis compare avec un exemple.
+                Le plus important est de comprendre pourquoi tu fais chaque choix.
+            </p>
+            <div class="points-cles">
+                <h3>Plan conseillé</h3>
+                <ul>
+                    <li>1. Créer le HTML et la structure du site.</li>
+                    <li>2. Ajouter les styles de base, couleurs et typographie.</li>
+                    <li>3. Construire la mise en page avec Flexbox.</li>
+                    <li>4. Ajouter les media queries pour mobile.</li>
+                    <li>5. Vérifier les liens, images et formulaire.</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="points-cles">
+            <h3>Ressources utiles</h3>
+            <ul>
+                <li>Reviens sur chaque leçon si une notion te paraît floue.</li>
+                <li>Utilise le récapitulatif pour retrouver rapidement un concept.</li>
+                <li>Ne panique pas si c'est un peu long : fais-le étape par étape.</li>
+            </ul>
+        </div>
+
+        <nav class="lesson-nav">
+            <a href="/recap.html" class="btn-nav">← Récapitulatif</a>
+            <a href="/projet de fin/index.html" class="btn-nav" target="_blank" rel="noopener">Ouvrir le portfolio</a>
+            <a href="/html/lecon-1.html" class="btn-nav primary">Revenir au cours</a>
+        </nav>
+
+    </main>
+</div>
+</body>
+</html>

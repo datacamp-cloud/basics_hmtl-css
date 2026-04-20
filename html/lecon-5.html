@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Leçon 05 — Sémantique HTML</title>
+</head>
+<body>
+<div class="layout">
+
+    <aside class="sidebar">
+        <div class="sidebar-logo">HTML<span>&CSS</span></div>
+        <nav class="sidebar-nav">
+            <p class="sidebar-section-title">Partie 1 — HTML</p>
+            <ul>
+                <li><a href="lecon-1.html"><span class="nav-num">01</span>Structure d'une page</a></li>
+                <li><a href="lecon-2.html"><span class="nav-num">02</span>Balises de texte</a></li>
+                <li><a href="lecon-3.html"><span class="nav-num">03</span>Listes</a></li>
+                <li><a href="lecon-4.html"><span class="nav-num">04</span>Liens et images</a></li>
+                <li><a href="lecon-5.html" class="active"><span class="nav-num">05</span>Sémantique HTML</a></li>
+                <li><a href="lecon-6.html"><span class="nav-num">06</span>Formulaires</a></li>
+            </ul>
+        </nav>
+        <nav class="sidebar-nav">
+            <p class="sidebar-section-title">Partie 2 — CSS</p>
+            <ul>
+                <li><a href="lecon-7.html"><span class="nav-num">07</span>Introduction CSS</a></li>
+                <li><a href="lecon-8.html"><span class="nav-num">08</span>Couleurs et polices</a></li>
+                <li><a href="lecon-9.html"><span class="nav-num">09</span>Le Box Model</a></li>
+                <li><a href="lecon-10.html"><span class="nav-num">10</span>Flexbox</a></li>
+                <li><a href="lecon-11.html"><span class="nav-num">11</span>Mise en page</a></li>
+                <li><a href="lecon-12.html"><span class="nav-num">12</span>Responsive design</a></li>
+            </ul>
+        </nav>
+        <!-- PARTIE 3 : PROJET -->
+            <nav class="sidebar-nav">
+                <p class="sidebar-section-title">Partie 3 — Projet</p>
+                <ul>
+                    <li>
+                        <a href="projet.html">
+                            <span class="nav-num">13</span>
+                            Projet de fin
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+    </aside>
+
+    <main class="content">
+
+        <header class="lesson-header">
+            <span class="lesson-tag">Leçon 05 · HTML</span>
+            <h1>Sémantique HTML</h1>
+            <p class="lesson-intro">
+                La sémantique, c'est donner du <em>sens</em> à chaque balise.
+                Un moteur de recherche, un lecteur d'écran et un autre développeur
+                doivent comprendre la structure de ta page rien qu'en lisant le HTML.
+                C'est ce que les balises sémantiques permettent.
+            </p>
+        </header>
+
+        <!-- BLOC 1 : div vs sémantique -->
+        <section class="lesson-block">
+            <h2>Le problème avec &lt;div&gt;</h2>
+            <p>
+                La balise <code>&lt;div&gt;</code> est un conteneur neutre — elle
+                ne dit rien sur ce qu'elle contient. Avant HTML5, tout était fait
+                avec des <code>&lt;div&gt;</code>. Aujourd'hui, on dispose de
+                balises qui <strong>décrivent le rôle</strong> de chaque zone.
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-com">&lt;!-- ❌ Avant HTML5 : tout en div --&gt;</span>
+<span class="t-tag">&lt;div <span class="t-attr">class</span>=<span class="t-val">"header"</span>&gt;</span>...<span class="t-tag">&lt;/div&gt;</span>
+<span class="t-tag">&lt;div <span class="t-attr">class</span>=<span class="t-val">"nav"</span>&gt;</span>...<span class="t-tag">&lt;/div&gt;</span>
+<span class="t-tag">&lt;div <span class="t-attr">class</span>=<span class="t-val">"content"</span>&gt;</span>...<span class="t-tag">&lt;/div&gt;</span>
+<span class="t-tag">&lt;div <span class="t-attr">class</span>=<span class="t-val">"footer"</span>&gt;</span>...<span class="t-tag">&lt;/div&gt;</span>
+
+<span class="t-com">&lt;!-- ✅ Aujourd'hui : balises sémantiques --&gt;</span>
+<span class="t-tag">&lt;header&gt;</span>...<span class="t-tag">&lt;/header&gt;</span>
+<span class="t-tag">&lt;nav&gt;</span>...<span class="t-tag">&lt;/nav&gt;</span>
+<span class="t-tag">&lt;main&gt;</span>...<span class="t-tag">&lt;/main&gt;</span>
+<span class="t-tag">&lt;footer&gt;</span>...<span class="t-tag">&lt;/footer&gt;</span></pre>
+                </div>
+                <div class="rendu-zone">
+                    <div style="width:100%;font-size:0.82rem;">
+                        <div style="background:#fef2f2;border:1px solid #fca5a5;border-radius:6px;padding:6px 10px;margin-bottom:6px;color:#991b1b;">
+                            &lt;div class="header"&gt; — le navigateur ne sait pas ce que c'est
+                        </div>
+                        <div style="background:#f0fdf4;border:1px solid #86efac;border-radius:6px;padding:6px 10px;color:#166534;">
+                            &lt;header&gt; — tout le monde comprend que c'est l'en-tête
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOC 2 : les balises sémantiques principales -->
+        <section class="lesson-block">
+            <h2>Les balises sémantiques principales</h2>
+            <p>Voici les balises à connaître et leur rôle précis.</p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-tag">&lt;header&gt;</span>
+  <span class="t-com">&lt;!-- En-tête : logo, navbar --&gt;</span>
+<span class="t-tag">&lt;/header&gt;</span>
+
+<span class="t-tag">&lt;nav&gt;</span>
+  <span class="t-com">&lt;!-- Bloc de navigation --&gt;</span>
+<span class="t-tag">&lt;/nav&gt;</span>
+
+<span class="t-tag">&lt;main&gt;</span>
+  <span class="t-com">&lt;!-- Contenu principal (un seul par page) --&gt;</span>
+
+  <span class="t-tag">&lt;section&gt;</span>
+    <span class="t-com">&lt;!-- Groupe thématique de contenu --&gt;</span>
+  <span class="t-tag">&lt;/section&gt;</span>
+
+  <span class="t-tag">&lt;article&gt;</span>
+    <span class="t-com">&lt;!-- Contenu autonome (carte, blog post) --&gt;</span>
+  <span class="t-tag">&lt;/article&gt;</span>
+
+  <span class="t-tag">&lt;aside&gt;</span>
+    <span class="t-com">&lt;!-- Contenu secondaire (sidebar) --&gt;</span>
+  <span class="t-tag">&lt;/aside&gt;</span>
+
+<span class="t-tag">&lt;/main&gt;</span>
+
+<span class="t-tag">&lt;footer&gt;</span>
+  <span class="t-com">&lt;!-- Pied de page --&gt;</span>
+<span class="t-tag">&lt;/footer&gt;</span></pre>
+                </div>
+                <div class="rendu-zone">
+                    <div style="width:100%;font-size:0.78rem;display:flex;flex-direction:column;gap:4px;">
+                        <div style="background:#fff7ed;border:1px solid #f97316;border-radius:4px;padding:5px 8px;color:#c2410c;">header — en-tête</div>
+                        <div style="background:#eff6ff;border:1px solid #60a5fa;border-radius:4px;padding:5px 8px;color:#1d4ed8;">nav — navigation</div>
+                        <div style="background:#f0fdf4;border:1px solid #4ade80;border-radius:4px;padding:5px 8px 5px 14px;color:#166534;">
+                            main — contenu principal
+                            <div style="display:flex;flex-direction:column;gap:3px;margin-top:4px;">
+                                <div style="background:#fefce8;border:1px solid #facc15;border-radius:4px;padding:4px 8px;color:#854d0e;">section</div>
+                                <div style="background:#fdf4ff;border:1px solid #e879f9;border-radius:4px;padding:4px 8px;color:#86198f;">article</div>
+                                <div style="background:#f0f9ff;border:1px solid #38bdf8;border-radius:4px;padding:4px 8px;color:#075985;">aside</div>
+                            </div>
+                        </div>
+                        <div style="background:#f8fafc;border:1px solid #94a3b8;border-radius:4px;padding:5px 8px;color:#475569;">footer — pied de page</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOC 3 : section vs article -->
+        <section class="lesson-block">
+            <h2>La différence entre &lt;section&gt; et &lt;article&gt;</h2>
+            <p>
+                C'est souvent source de confusion. La règle est simple :
+                un <code>&lt;article&gt;</code> peut être <strong>extrait de la page
+                et rester compréhensible seul</strong> (une carte produit, un article de blog).
+                Une <code>&lt;section&gt;</code> regroupe du contenu qui
+                <strong>appartient à la page</strong> et n'a pas de sens seul.
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-com">&lt;!-- section = groupe thématique --&gt;</span>
+<span class="t-tag">&lt;section <span class="t-attr">id</span>=<span class="t-val">"services"</span>&gt;</span>
+  <span class="t-tag">&lt;h2&gt;</span>Nos services<span class="t-tag">&lt;/h2&gt;</span>
+
+  <span class="t-com">&lt;!-- article = contenu autonome --&gt;</span>
+  <span class="t-tag">&lt;article <span class="t-attr">class</span>=<span class="t-val">"carte"</span>&gt;</span>
+    <span class="t-tag">&lt;h3&gt;</span>Design UI<span class="t-tag">&lt;/h3&gt;</span>
+    <span class="t-tag">&lt;p&gt;</span>Création d'interfaces...<span class="t-tag">&lt;/p&gt;</span>
+  <span class="t-tag">&lt;/article&gt;</span>
+
+  <span class="t-tag">&lt;article <span class="t-attr">class</span>=<span class="t-val">"carte"</span>&gt;</span>
+    <span class="t-tag">&lt;h3&gt;</span>Développement<span class="t-tag">&lt;/h3&gt;</span>
+    <span class="t-tag">&lt;p&gt;</span>Intégration HTML/CSS...<span class="t-tag">&lt;/p&gt;</span>
+  <span class="t-tag">&lt;/article&gt;</span>
+
+<span class="t-tag">&lt;/section&gt;</span></pre>
+                </div>
+                <div class="rendu-zone">
+                    <div style="width:100%;font-size:0.85rem;">
+                        <p style="color:#64748b;margin-bottom:8px;">Rendu logique :</p>
+                        <div style="border:1px dashed #f97316;border-radius:6px;padding:10px;">
+                            <p style="color:#f97316;font-size:0.75rem;margin-bottom:8px;">section#services</p>
+                            <h2 style="font-size:1rem;margin-bottom:10px;">Nos services</h2>
+                            <div style="display:flex;gap:8px;">
+                                <div style="flex:1;border:1px solid #e2e8f0;border-radius:4px;padding:8px;">
+                                    <h3 style="font-size:0.85rem;margin-bottom:4px;">Design UI</h3>
+                                    <p style="font-size:0.75rem;color:#64748b;">Création d'interfaces...</p>
+                                </div>
+                                <div style="flex:1;border:1px solid #e2e8f0;border-radius:4px;padding:8px;">
+                                    <h3 style="font-size:0.85rem;margin-bottom:4px;">Développement</h3>
+                                    <p style="font-size:0.75rem;color:#64748b;">Intégration HTML/CSS...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOC 4 : structure complète d'une page -->
+        <section class="lesson-block">
+            <h2>La structure complète d'une vraie page</h2>
+            <p>
+                Voici comment toutes ces balises s'assemblent pour former
+                la structure d'un site web professionnel. C'est exactement
+                la structure utilisée dans le projet final de ce cours.
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-tag">&lt;body&gt;</span>
+
+  <span class="t-tag">&lt;header&gt;</span>
+    <span class="t-tag">&lt;nav&gt;</span>
+      <span class="t-tag">&lt;a <span class="t-attr">href</span>=<span class="t-val">"#"</span>&gt;</span>Logo<span class="t-tag">&lt;/a&gt;</span>
+      <span class="t-tag">&lt;ul&gt;</span>...<span class="t-tag">&lt;/ul&gt;</span>
+    <span class="t-tag">&lt;/nav&gt;</span>
+  <span class="t-tag">&lt;/header&gt;</span>
+
+  <span class="t-tag">&lt;main&gt;</span>
+    <span class="t-tag">&lt;section <span class="t-attr">id</span>=<span class="t-val">"accueil"</span>&gt;</span>...<span class="t-tag">&lt;/section&gt;</span>
+    <span class="t-tag">&lt;section <span class="t-attr">id</span>=<span class="t-val">"services"</span>&gt;</span>...<span class="t-tag">&lt;/section&gt;</span>
+    <span class="t-tag">&lt;section <span class="t-attr">id</span>=<span class="t-val">"contact"</span>&gt;</span>...<span class="t-tag">&lt;/section&gt;</span>
+  <span class="t-tag">&lt;/main&gt;</span>
+
+  <span class="t-tag">&lt;footer&gt;</span>
+    <span class="t-tag">&lt;nav&gt;</span>...<span class="t-tag">&lt;/nav&gt;</span>
+    <span class="t-tag">&lt;p&gt;</span>© 2025<span class="t-tag">&lt;/p&gt;</span>
+  <span class="t-tag">&lt;/footer&gt;</span>
+
+<span class="t-tag">&lt;/body&gt;</span></pre>
+                </div>
+                <div class="rendu-zone">
+                    <div style="width:100%;display:flex;flex-direction:column;gap:4px;font-size:0.78rem;">
+                        <div style="background:#fff7ed;border-radius:4px;padding:6px 10px;border-left:3px solid #f97316;">
+                            <strong>header</strong> — sticky en haut
+                        </div>
+                        <div style="background:#f0fdf4;border-radius:4px;padding:6px 10px 6px 10px;border-left:3px solid #22c55e;display:flex;flex-direction:column;gap:3px;">
+                            <strong>main</strong>
+                            <div style="padding-left:10px;display:flex;flex-direction:column;gap:3px;">
+                                <div style="background:#fefce8;padding:4px 8px;border-radius:3px;">section#accueil</div>
+                                <div style="background:#fefce8;padding:4px 8px;border-radius:3px;">section#services</div>
+                                <div style="background:#fefce8;padding:4px 8px;border-radius:3px;">section#contact</div>
+                            </div>
+                        </div>
+                        <div style="background:#f8fafc;border-radius:4px;padding:6px 10px;border-left:3px solid #94a3b8;">
+                            <strong>footer</strong> — en bas de page
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="points-cles">
+            <h3>Points clés à retenir</h3>
+            <ul>
+                <li><code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code> décrivent le rôle de chaque zone</li>
+                <li>Un seul <code>&lt;main&gt;</code> par page — c'est le contenu principal</li>
+                <li><code>&lt;section&gt;</code> regroupe un thème, <code>&lt;article&gt;</code> est un contenu autonome</li>
+                <li><code>&lt;div&gt;</code> reste utile pour les conteneurs purement visuels (sans sens sémantique)</li>
+                <li>L'attribut <code>id</code> sur une section permet de créer des liens d'ancre <code>href="#id"</code></li>
+            </ul>
+        </div>
+
+        <nav class="lesson-nav">
+            <a href="lecon-4.html" class="btn-nav">← Leçon 04</a>
+            <a href="lecon-6.html" class="btn-nav primary">Leçon 06 : Formulaires →</a>
+        </nav>
+
+    </main>
+</div>
+</body>
+</html>

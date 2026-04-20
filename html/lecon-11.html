@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Leçon 11 : Mise en page</title>
+</head>
+<body>
+<div class="layout">
+
+    <aside class="sidebar">
+        <div class="sidebar-logo">HTML<span>&CSS</span></div>
+        <nav class="sidebar-nav">
+            <p class="sidebar-section-title">Partie 1 : HTML</p>
+            <ul>
+                <li><a href="lecon-1.html"><span class="nav-num">01</span>Structure d'une page</a></li>
+                <li><a href="lecon-2.html"><span class="nav-num">02</span>Balises de texte</a></li>
+                <li><a href="lecon-3.html"><span class="nav-num">03</span>Listes</a></li>
+                <li><a href="lecon-4.html"><span class="nav-num">04</span>Liens et images</a></li>
+                <li><a href="lecon-5.html"><span class="nav-num">05</span>Sémantique HTML</a></li>
+                <li><a href="lecon-6.html"><span class="nav-num">06</span>Formulaires</a></li>
+            </ul>
+        </nav>
+        <nav class="sidebar-nav">
+            <p class="sidebar-section-title">Partie 2 : CSS</p>
+            <ul>
+                <li><a href="lecon-7.html"><span class="nav-num">07</span>Introduction CSS</a></li>
+                <li><a href="lecon-8.html"><span class="nav-num">08</span>Couleurs et polices</a></li>
+                <li><a href="lecon-9.html"><span class="nav-num">09</span>Le Box Model</a></li>
+                <li><a href="lecon-10.html"><span class="nav-num">10</span>Flexbox</a></li>
+                <li><a href="lecon-11.html" class="active"><span class="nav-num">11</span>Mise en page</a></li>
+                <li><a href="lecon-12.html"><span class="nav-num">12</span>Responsive design</a></li>
+            </ul>
+        </nav>
+        <!-- PARTIE 3 : PROJET -->
+            <nav class="sidebar-nav">
+                <p class="sidebar-section-title">Partie 3 — Projet</p>
+                <ul>
+                    <li>
+                        <a href="projet.html">
+                            <span class="nav-num">13</span>
+                            Projet de fin
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+    </aside>
+
+    <main class="content">
+
+        <header class="lesson-header">
+            <span class="lesson-tag">Leçon 11 : CSS</span>
+            <h1>Mise en page</h1>
+            <p class="lesson-intro">
+                Cette leçon montre comment structurer un site avec une vraie navbar et un hero.
+                On assemble les éléments CSS vus précédemment pour obtenir une page claire et moderne.
+            </p>
+        </header>
+
+        <section class="lesson-block">
+            <h2>Créer une navbar simple</h2>
+            <p>
+                Une navigation se compose d'un conteneur et de liens alignés sur une ligne.
+                Flexbox est parfait pour espacer les éléments et aligner le logo et les liens.
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-attr">.navbar</span> {
+  <span class="t-tag">display</span>: <span class="t-val">flex</span>;
+  <span class="t-tag">justify-content</span>: <span class="t-val">space-between</span>;
+  <span class="t-tag">align-items</span>: <span class="t-val">center</span>;
+  <span class="t-tag">padding</span>: <span class="t-val">18px 24px</span>;
+}
+
+<span class="t-attr">.nav-links</span> {
+  <span class="t-tag">display</span>: <span class="t-val">flex</span>;
+  <span class="t-tag">gap</span>: <span class="t-val">18px</span>;
+}
+
+<span class="t-attr">.nav-links a</span> {
+  <span class="t-tag">text-decoration</span>: <span class="t-val">none</span>;
+  <span class="t-tag">color</span>: <span class="t-val">#0f172a</span>;
+}
+</pre>
+                </div>
+                <div class="rendu-zone">
+                    <div style="display:flex;justify-content:space-between;align-items:center;padding:18px 24px; gap: 20px;background:#f8fafc;border-radius:12px;">
+                        <div style="font-weight:700;color:#0f172a;">Logo</div>
+                        <div style="display:flex;gap:18px;">
+                            <a href="#" style="text-decoration:none;color:#0f172a;">Accueil</a>
+                            <a href="#" style="text-decoration:none;color:#0f172a;">Cours</a>
+                            <a href="#" style="text-decoration:none;color:#0f172a;">Contact</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-block">
+            <h2>Construire un hero</h2>
+            <p>
+                Le hero est la première section visible. Il combine un titre fort, un texte clair et un appel à l'action.
+                On peut aussi utiliser un conteneur centré avec une largeur maximale pour améliorer la lecture.
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-attr">.hero</span> {
+  <span class="t-tag">max-width</span>: <span class="t-val">760px</span>;
+  <span class="t-tag">margin</span>: <span class="t-val">0 auto</span>;
+  <span class="t-tag">padding</span>: <span class="t-val">60px 24px</span>;
+  <span class="t-tag">text-align</span>: <span class="t-val">center</span>;
+}
+
+<span class="t-attr">.btn-primary</span> {
+  <span class="t-tag">display</span>: <span class="t-val">inline-block</span>;
+  <span class="t-tag">padding</span>: <span class="t-val">12px 24px</span>;
+  <span class="t-tag">background</span>: <span class="t-val">#2563eb</span>;
+  <span class="t-tag">color</span>: <span class="t-val">white</span>;
+  <span class="t-tag">border-radius</span>: <span class="t-val">10px</span>;
+}</pre>
+                </div>
+                <div class="rendu-zone">
+                    <div style="max-width:760px;margin:0 auto;padding:60px 24px;text-align:center;background:#eff6ff;border-radius:16px;">
+                        <h2 style="margin-bottom:18px;color:#1e3a8a;">Construire une page claire et moderne</h2>
+                        <p style="margin-bottom:24px;color:#334155;line-height:1.7;">Utilise une structure simple, des sections espacées et un appel à l'action visible pour guider l'utilisateur.</p>
+                        <a href="#" style="display:inline-block;padding:12px 24px;background:#2563eb;color:white;border-radius:10px;text-decoration:none;">Découvrir</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-block">
+            <h2>Disposer plusieurs colonnes</h2>
+            <p>
+                On peut présenter plusieurs cartes côte à côte en utilisant Flexbox ou Grid.
+                Ici, chaque carte a une largeur flexible et un espace régulier entre elles.
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-attr">.grille</span> {
+  <span class="t-tag">display</span>: <span class="t-val">flex</span>;
+  <span class="t-tag">gap</span>: <span class="t-val">20px</span>;
+}
+
+<span class="t-attr">.carte</span> {
+  <span class="t-tag">flex</span>: <span class="t-val">1</span>;
+  <span class="t-tag">padding</span>: <span class="t-val">20px</span>;
+  <span class="t-tag">background</span>: <span class="t-val">#f1f5f9</span>;
+  <span class="t-tag">border-radius</span>: <span class="t-val">14px</span>;
+}</pre>
+                </div>
+                <div class="rendu-zone">
+                    <div style="display:flex;gap:20px;">
+                        <div style="flex:1;padding:20px;background:#f1f5f9;border-radius:14px;">Carte A</div>
+                        <div style="flex:1;padding:20px;background:#e2e8f0;border-radius:14px;">Carte B</div>
+                        <div style="flex:1;padding:20px;background:#cbd5e1;border-radius:14px;">Carte C</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-block">
+            <h2>Limiter la largeur du contenu</h2>
+            <p>
+                Un contenu trop large est difficile à lire. On utilise <code>max-width</code> et <code>margin: 0 auto</code>
+                pour centrer proprement les sections et garder le texte confortable.
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-attr">.contenu</span> {
+  <span class="t-tag">max-width</span>: <span class="t-val">900px</span>;
+  <span class="t-tag">margin</span>: <span class="t-val">0 auto</span>;
+  <span class="t-tag">padding</span>: <span class="t-val">0 24px</span>;
+}
+</pre>
+                </div>
+                <div class="rendu-zone">
+                    <div style="max-width:900px;margin:0 auto;padding:0 24px;background:#f8fafc;border-radius:16px;">
+                        <p style="line-height:1.8;color:#334155;">Le contenu est plus facile à lire lorsque la ligne ne fait pas trop de largeur. Cette technique rend la page plus agréable sur grand écran.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="points-cles">
+            <h3>Points clés à retenir</h3>
+            <ul>
+                <li>Une navbar utilise souvent <code>display: flex</code> pour aligner les éléments.</li>
+                <li>Le hero doit être clair, centré et attractif.</li>
+                <li>Les colonnes peuvent être créées avec Flexbox et des cartes flexibles.</li>
+                <li><code>max-width</code> et <code>margin: 0 auto</code> améliorent la lisibilité.</li>
+            </ul>
+        </div>
+
+        <nav class="lesson-nav">
+            <a href="lecon-10.html" class="btn-nav">← Leçon 10</a>
+            <a href="lecon-12.html" class="btn-nav primary">Leçon 12 : Responsive Design →</a>
+        </nav>
+
+    </main>
+</div>
+</body>
+</html>

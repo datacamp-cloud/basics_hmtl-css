@@ -1,0 +1,413 @@
+/* =============================================
+   IMPORT POLICE GOOGLE FONTS
+   On choisit deux polices : une pour les titres,
+   une pour le texte courant
+   ============================================= */
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap');
+
+/* =============================================
+   VARIABLES CSS
+   Centralisées ici pour pouvoir changer toute
+   la couleur du site en modifiant une seule ligne
+   ============================================= */
+:root {
+    --couleur-accent:     #f97316;   /* Orange vif : notre couleur principale */
+    --couleur-sombre:     #0f172a;   /* Fond sombre de la sidebar */
+    --couleur-texte:      #1e293b;   /* Texte principal */
+    --couleur-secondaire: #64748b;   /* Texte secondaire / muted */
+    --couleur-fond:       #f8fafc;   /* Fond de la page */
+    --couleur-blanc:      #ffffff;
+    --couleur-bordure:    #e2e8f0;
+
+    --police-titre: 'Syne', sans-serif;
+    --police-texte: 'DM Sans', sans-serif;
+
+    --rayon:   8px;
+    --ombre:   0 2px 12px rgba(0,0,0,0.08);
+}
+
+/* =============================================
+   RESET DE BASE
+   Supprime les marges/paddings par défaut
+   des navigateurs
+   ============================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--police-texte);
+    background-color: var(--couleur-fond);
+    color: var(--couleur-texte);
+    line-height: 1.7;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* =============================================
+   LAYOUT PRINCIPAL
+   La page est découpée en deux colonnes :
+   sidebar fixe à gauche + contenu à droite
+   ============================================= */
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* =============================================
+   SIDEBAR (barre latérale de navigation)
+   ============================================= */
+.sidebar {
+    width: 260px;
+    min-height: 100vh;
+    background-color: var(--couleur-sombre);
+    color: var(--couleur-blanc);
+    padding: 2rem 1.5rem;
+
+    /* Elle reste fixe même quand on scroll */
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+
+    /* Flex vertical pour empiler logo + nav */
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.sidebar-logo {
+    font-family: var(--police-titre);
+    font-size: 1.3rem;
+    color: var(--couleur-accent);
+    letter-spacing: -0.5px;
+}
+
+.sidebar-logo span {
+    color: var(--couleur-blanc);
+}
+
+.sidebar-section-title {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--couleur-secondaire);
+    margin-bottom: 0.75rem;
+}
+
+.sidebar-nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.55rem 0.75rem;
+    border-radius: var(--rayon);
+    font-size: 0.9rem;
+    color: #94a3b8;
+    transition: all 0.15s ease;
+}
+
+.sidebar-nav a:hover {
+    background-color: rgba(255,255,255,0.07);
+    color: var(--couleur-blanc);
+}
+
+/* Leçon active (page actuelle) */
+.sidebar-nav a.active {
+    background-color: var(--couleur-accent);
+    color: var(--couleur-blanc);
+}
+
+.nav-num {
+    font-size: 0.75rem;
+    width: 20px;
+    text-align: center;
+    opacity: 0.6;
+}
+
+/* =============================================
+   CONTENU PRINCIPAL
+   ============================================= */
+.content {
+    flex: 1;        /* Prend tout l'espace restant */
+    padding: 3rem 4rem;
+    max-width: 860px;
+}
+
+/* =============================================
+   EN-TÊTE DE LA LEÇON
+   ============================================= */
+.lesson-header {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--couleur-bordure);
+}
+
+.lesson-tag {
+    display: inline-block;
+    background-color: #fff7ed;
+    color: var(--couleur-accent);
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.3rem 0.85rem;
+    border-radius: 99px;
+    margin-bottom: 1rem;
+    border: 1px solid #fed7aa;
+}
+
+.lesson-header h1 {
+    font-family: var(--police-titre);
+    font-size: 2.2rem;
+    line-height: 1.2;
+    color: var(--couleur-texte);
+    margin-bottom: 0.75rem;
+}
+
+.lesson-intro {
+    font-size: 1.05rem;
+    color: var(--couleur-secondaire);
+    max-width: 600px;
+}
+
+/* =============================================
+   BLOC DE CONTENU D'UNE LEÇON
+   Un bloc = une notion expliquée
+   ============================================= */
+.lesson-block {
+    margin-bottom: 3rem;
+    /* border: 1px solid ; */
+    padding: 1rem;
+}
+
+.lesson-block h2 {
+    font-family: var(--police-titre);
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+}
+
+.lesson-block p {
+    color: var(--couleur-secondaire);
+    margin-bottom: 1.25rem;
+}
+
+/* =============================================
+   BLOC CODE + RENDU (côte à côte)
+   ============================================= */
+.exemple {
+    display: grid;
+    grid-template-columns: 1fr 1fr;   /* 2 colonnes égales */
+    gap: 5rem;
+    margin-top: 1rem;
+}
+
+/* Zone de code */
+.code-zone {
+    background-color: var(--couleur-sombre);
+    border-radius: var(--rayon);
+    padding: 1.25rem;
+    overflow-x: auto;
+    width: 70vh;
+}
+
+.code-zone pre {
+    color: #e2e8f0;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    white-space: pre;
+}
+
+/* Coloration syntaxique manuelle */
+.t-tag    { color: #f97316; }   /* balises HTML */
+.t-attr   { color: #38bdf8; }   /* attributs */
+.t-val    { color: #a3e635; }   /* valeurs */
+.t-com    { color: #64748b; font-style: italic; } /* commentaires */
+
+/* Zone de rendu (résultat visuel) */
+.rendu-zone {
+    background-color: var(--couleur-blanc);
+    border: 1px solid var(--couleur-bordure);
+    border-radius: var(--rayon);
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    width: 70vh;
+}
+
+/* =============================================
+   ENCADRÉ "POINTS CLÉS"
+   ============================================= */
+.points-cles {
+    background-color: #fff7ed;
+    border-left: 3px solid var(--couleur-accent);
+    border-radius: 0 var(--rayon) var(--rayon) 0;
+    padding: 1.25rem 1.5rem;
+    margin: 2.5rem 0;
+}
+
+.points-cles h3 {
+    font-family: var(--police-titre);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--couleur-accent);
+    margin-bottom: 0.75rem;
+}
+
+.points-cles ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.points-cles ul li::before {
+    content: "→ ";
+    color: var(--couleur-accent);
+    font-weight: 500;
+}
+
+.points-cles ul li {
+    font-size: 0.95rem;
+    color: var(--couleur-texte);
+}
+
+/* =============================================
+   NAVIGATION EN BAS DE PAGE
+   Boutons "Leçon précédente" / "Leçon suivante"
+   ============================================= */
+.lesson-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--couleur-bordure);
+}
+
+.btn-nav {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--rayon);
+    font-weight: 500;
+    font-size: 0.9rem;
+    border: 1px solid var(--couleur-bordure);
+    background-color: var(--couleur-blanc);
+    color: var(--couleur-texte);
+    transition: all 0.15s ease;
+    cursor: pointer;
+}
+
+.btn-nav:hover {
+    border-color: var(--couleur-accent);
+    color: var(--couleur-accent);
+}
+
+.btn-nav.primary {
+    background-color: var(--couleur-accent);
+    color: var(--couleur-blanc);
+    border-color: var(--couleur-accent);
+}
+
+.btn-nav.primary:hover {
+    background-color: #ea6c0a;
+}
+
+/* =============================================
+   PAGE D'ACCUEIL UNIQUEMENT
+   ============================================= */
+.hero {
+    padding: 2rem 0 3rem;
+    border-bottom: 1px solid var(--couleur-bordure);
+    margin-bottom: 3rem;
+}
+
+.hero h1 {
+    font-family: var(--police-titre);
+    font-size: 3rem;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
+
+.hero h1 span {
+    color: var(--couleur-accent);
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: var(--couleur-secondaire);
+    max-width: 520px;
+    margin-bottom: 2rem;
+}
+
+/* Grille des cartes de leçons sur la page d'accueil */
+.lecons-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.lecon-card {
+    background-color: var(--couleur-blanc);
+    border: 1px solid var(--couleur-bordure);
+    border-radius: var(--rayon);
+    padding: 1.25rem;
+    transition: all 0.15s ease;
+}
+
+.lecon-card:hover {
+    border-color: var(--couleur-accent);
+    box-shadow: var(--ombre);
+    transform: translateY(-2px);
+}
+
+.lecon-card-num {
+    font-size: 0.75rem;
+    color: var(--couleur-accent);
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+}
+
+.lecon-card h3 {
+    font-family: var(--police-titre);
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+}
+
+.lecon-card p {
+    font-size: 0.85rem;
+    color: var(--couleur-secondaire);
+}
+
+.section-title {
+    font-family: var(--police-titre);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background-color: var(--couleur-bordure);
+}

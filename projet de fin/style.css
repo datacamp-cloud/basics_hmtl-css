@@ -1,0 +1,812 @@
+/* =====================================================
+   LEÇON 08 : Import Google Fonts
+   On utilise Playfair Display (titres) + Outfit (texte)
+   ===================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Outfit:wght@300;400;500&display=swap');
+
+
+/* =====================================================
+   LEÇON 07 : Variables CSS
+   Centralisées ici — changer une variable = changer
+   toute la charte graphique d'un coup
+   ===================================================== */
+:root {
+    /* Couleurs */
+    --couleur-fond:        #f5f8fb;
+    --couleur-surface:     #ffffff;
+    --couleur-surface-2:   #f1f5f9;
+    --couleur-accent:      #2563eb;      /* Bleu lumineux */
+    --couleur-accent-2:    #3b82f6;
+    --couleur-texte:       #102a43;      /* Bleu très sombre */
+    --couleur-texte-doux:  #475569;
+    --couleur-bordure:     #dbeafe;
+
+    /* Polices */
+    --police-titre: 'Playfair Display', Georgia, serif;
+    --police-texte: 'Outfit', sans-serif;
+
+    /* Espacements — LEÇON 09 : Box Model */
+    --espace-xs:   0.5rem;
+    --espace-sm:   1rem;
+    --espace-md:   2rem;
+    --espace-lg:   3rem;
+    --espace-xl:   5rem;
+
+    /* Autres */
+    --rayon:       12px;
+    --transition:  0.25s ease;
+}
+
+
+/* =====================================================
+   LEÇON 07 : Reset CSS + base
+   ===================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;     /* LEÇON 09 : box model border-box */
+}
+
+html {
+    /* Défilement fluide quand on clique sur un lien ancre */
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--police-texte);
+    font-weight: 400;
+    background-color: var(--couleur-fond);
+    color: var(--couleur-texte);
+    line-height: 1.75;
+    font-size: 1rem;
+}
+
+/* LEÇON 04 : style de base pour tous les liens */
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--transition);
+}
+
+/* LEÇON 03 : suppression des puces par défaut */
+ul, ol {
+    list-style: none;
+}
+
+/* Images responsives */
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Conteneur centré réutilisable — LEÇON 09 : margin: auto */
+.section-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 var(--espace-md);
+}
+
+
+/* =====================================================
+   LEÇON 11 : NAVBAR
+   Flex row : logo à gauche, liens à droite
+   ===================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid var(--couleur-bordure);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 20px rgba(16, 42, 67, 0.06);
+}
+
+/* LEÇON 10 : Flexbox — conteneur de la navbar */
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 var(--espace-md);
+    height: 70px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;         /* Centre verticalement */
+    justify-content: space-between;  /* Logo gauche, liens droite */
+}
+
+/* Logo */
+.logo {
+    font-family: var(--police-titre);
+    font-size: 1.4rem;
+    color: var(--couleur-texte);
+    letter-spacing: -0.5px;
+}
+
+.logo strong {
+    color: var(--couleur-accent);
+}
+
+/* LEÇON 10 : liste des liens en ligne avec Flexbox */
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    gap: var(--espace-md);      /* LEÇON 10 : gap remplace les margins */
+    align-items: center;
+}
+
+.nav-links a {
+    font-size: 0.9rem;
+    color: var(--couleur-texte-doux);
+    font-weight: 400;
+    transition: color var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--couleur-accent);
+}
+
+/* Bouton hamburger — masqué sur desktop */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: 1px solid var(--couleur-bordure);
+    color: var(--couleur-texte);
+    padding: 6px 10px;
+    border-radius: var(--rayon);
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+
+/* =====================================================
+   LEÇON 11 : SECTION HERO
+   Mise en page principale avec Flexbox
+   ===================================================== */
+.hero {
+    min-height: 100vh;          /* Occupe toute la hauteur de l'écran */
+    padding-top: 70px;          /* Compense la navbar fixe */
+
+    /* LEÇON 10 : Flexbox pour aligner contenu + décoration */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--espace-lg);
+
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-left: var(--espace-md);
+    padding-right: var(--espace-md);
+}
+
+.hero-content {
+    flex: 1;                    /* Prend l'espace disponible */
+    max-width: 600px;
+}
+
+/* LEÇON 02 : le h1 principal — un seul par page */
+.hero-titre {
+    font-family: var(--police-titre);
+    font-size: clamp(2.5rem, 5vw, 4rem);   /* Taille fluide */
+    line-height: 1.1;
+    margin-bottom: var(--espace-md);
+    font-weight: 900;
+}
+
+/* LEÇON 02 : <em> en italique avec la couleur accent */
+.hero-titre em {
+    color: var(--couleur-accent);
+    font-style: italic;
+}
+
+.hero-texte {
+    font-size: 1.1rem;
+    color: var(--couleur-texte-doux);
+    margin-bottom: var(--espace-md);
+    max-width: 480px;
+}
+
+/* LEÇON 10 : boutons côte à côte avec Flexbox */
+.hero-cta {
+    display: flex;
+    flex-direction: row;
+    gap: var(--espace-sm);
+    flex-wrap: wrap;
+}
+
+/* Décoration visuelle */
+.hero-deco {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    flex-shrink: 0;
+}
+
+.deco-cercle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px dotted var(--couleur-accent-2);
+    animation: tourner 10s linear infinite;
+}
+
+@keyframes tourner {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+.deco-tag {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Courier New', monospace;
+    font-size: 1.4rem;
+    color: var(--couleur-accent);
+    background: var(--couleur-surface);
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--rayon);
+    border: 1px solid var(--couleur-accent-2);
+}
+
+
+/* =====================================================
+   BOUTONS RÉUTILISABLES
+   LEÇON 04 + LEÇON 08 : liens stylisés
+   ===================================================== */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.75rem;
+    border-radius: var(--rayon);
+    font-weight: 500;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all var(--transition);
+    border: none;
+    font-family: var(--police-texte);
+}
+
+/* Bouton plein (accent) */
+.btn-primaire {
+    background-color: var(--couleur-accent);
+    color: #ffffff;
+}
+
+.btn-primaire:hover {
+    background-color: var(--couleur-accent-2);
+    transform: translateY(-2px);
+}
+
+/* Bouton contour */
+.btn-secondaire {
+    background-color: transparent;
+    color: var(--couleur-texte);
+    border: 1px solid var(--couleur-bordure);
+}
+
+.btn-secondaire:hover {
+    border-color: var(--couleur-accent);
+    color: var(--couleur-accent);
+}
+
+/* Bouton pleine largeur (formulaire) */
+.btn-full {
+    width: 100%;
+    text-align: center;
+}
+
+
+/* =====================================================
+   SECTION SERVICES
+   LEÇON 10 : Flexbox sur les cartes
+   ===================================================== */
+.services {
+    padding: var(--espace-xl) 0;
+    background-color: var(--couleur-fond);
+}
+
+/* Titres de section réutilisables */
+.section-titre {
+    font-family: var(--police-titre);
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: var(--espace-xs);
+}
+
+.section-sous-titre {
+    color: var(--couleur-texte-doux);
+    margin-bottom: var(--espace-lg);
+}
+
+/* LEÇON 10 : Flexbox pour la grille de cartes */
+.services-grille {
+    display: flex;
+    flex-direction: row;
+    gap: var(--espace-sm);
+    align-items: stretch;       /* Toutes les cartes à la même hauteur */
+}
+
+/* LEÇON 09 : Box Model — padding, border, border-radius */
+.carte-service {
+    flex: 1;
+    background-color: var(--couleur-surface);
+    border: 1px solid var(--couleur-bordure);
+    border-radius: var(--rayon);
+    padding: var(--espace-md);
+    position: relative;
+    transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+    box-shadow: 0 10px 30px rgba(16, 42, 67, 0.06);
+}
+
+.carte-service:hover {
+    border-color: var(--couleur-accent);
+    transform: translateY(-2px);
+}
+
+/* Carte mise en avant */
+.carte-vedette {
+    border-color: var(--couleur-accent);
+    background-color: var(--couleur-surface);
+    box-shadow: 0 14px 35px rgba(37, 99, 235, 0.12);
+}
+
+.carte-icone {
+    font-size: 2rem;
+    margin-bottom: var(--espace-sm);
+}
+
+/* LEÇON 02 : h3 pour les titres de carte */
+.carte-service h3 {
+    font-family: var(--police-titre);
+    font-size: 1.3rem;
+    margin-bottom: var(--espace-xs);
+}
+
+.carte-service p {
+    color: var(--couleur-texte-doux);
+    font-size: 0.9rem;
+    margin-bottom: var(--espace-sm);
+}
+
+/* LEÇON 03 : liste des points de la carte */
+.carte-liste {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.carte-liste li::before {
+    content: "✓ ";
+    color: var(--couleur-accent);
+    font-weight: 500;
+}
+
+.carte-liste li {
+    font-size: 0.88rem;
+    color: var(--couleur-texte-doux);
+}
+
+.badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--couleur-accent);
+    color: #0d0d0d;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.2rem 0.85rem;
+    border-radius: 99px;
+    white-space: nowrap;
+}
+
+
+/* =====================================================
+   SECTION À PROPOS
+   LEÇON 09 : Box Model en pratique
+   ===================================================== */
+.apropos {
+    padding: var(--espace-xl) 0;
+}
+
+/* LEÇON 10 : deux colonnes avec Flexbox */
+.apropos-layout {
+    display: flex;
+    flex-direction: row;
+    gap: var(--espace-lg);
+    align-items: flex-start;
+}
+
+.apropos-texte {
+    flex: 1;
+}
+
+.apropos-texte h2 {
+    margin-bottom: var(--espace-md);
+}
+
+.apropos-texte p {
+    color: var(--couleur-texte-doux);
+    margin-bottom: var(--espace-sm);
+}
+
+/* LEÇON 02 : h3 sous-section */
+.apropos-texte h3 {
+    font-size: 1.1rem;
+    margin: var(--espace-md) 0 var(--espace-sm);
+    color: var(--couleur-accent);
+}
+
+/* LEÇON 03 : liste ordonnée du parcours */
+.parcours-liste {
+    list-style: decimal;
+    padding-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.parcours-liste li {
+    color: var(--couleur-texte-doux);
+    font-size: 0.95rem;
+}
+
+.parcours-liste li:last-child {
+    color: var(--couleur-accent);
+    font-weight: 500;
+}
+
+/* Colonne compétences */
+.apropos-competences {
+    width: 340px;
+    flex-shrink: 0;
+    background-color: var(--couleur-surface);
+    border: 1px solid var(--couleur-bordure);
+    border-radius: var(--rayon);
+    padding: var(--espace-md);   /* LEÇON 09 : padding = espace intérieur */
+}
+
+.apropos-competences h3 {
+    font-size: 1rem;
+    color: var(--couleur-texte-doux);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.78rem;
+    margin-bottom: var(--espace-sm);
+}
+
+/* LEÇON 09 : barres de compétence illustrent width + background */
+.competence {
+    margin-bottom: var(--espace-sm);
+}
+
+.competence-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.88rem;
+    margin-bottom: 6px;
+}
+
+.barre-fond {
+    height: 6px;
+    background-color: var(--couleur-bordure);
+    border-radius: 99px;
+    overflow: hidden;
+}
+
+.barre-niveau {
+    height: 100%;
+    background-color: var(--couleur-accent);
+    border-radius: 99px;
+    transition: width 1s ease;
+}
+
+/* LEÇON 03 : liste d'outils */
+.outils-liste {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.outils-liste li {
+    background-color: var(--couleur-surface-2);
+    border: 1px solid var(--couleur-bordure);
+    border-radius: 99px;
+    padding: 0.25rem 0.85rem;
+    font-size: 0.8rem;
+    color: var(--couleur-texte-doux);
+}
+
+
+/* =====================================================
+   SECTION CONTACT
+   LEÇON 06 : Formulaires
+   ===================================================== */
+.contact {
+    padding: var(--espace-xl) 0;
+    background-color: var(--couleur-surface);
+}
+
+/* LEÇON 10 : deux colonnes avec Flexbox */
+.contact-layout {
+    display: flex;
+    flex-direction: row;
+    gap: var(--espace-lg);
+    align-items: flex-start;
+}
+
+.contact-infos {
+    flex: 1;
+}
+
+.contact-infos h2 {
+    margin-bottom: var(--espace-md);
+}
+
+.contact-infos p {
+    color: var(--couleur-texte-doux);
+    margin-bottom: var(--espace-md);
+}
+
+/* LEÇON 03 : liste de liens de contact */
+.contact-liste {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espace-sm);
+}
+
+.contact-liste a {
+    color: var(--couleur-texte-doux);
+    font-size: 0.95rem;
+    transition: color var(--transition);
+}
+
+.contact-liste a:hover {
+    color: var(--couleur-accent);
+}
+
+/* LEÇON 06 : Formulaire */
+.formulaire {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--espace-sm);
+}
+
+/* LEÇON 09 : Box Model sur chaque champ */
+.champ {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+/* LEÇON 06 : style du <label> */
+.champ label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--couleur-texte-doux);
+}
+
+/* LEÇON 06 : style des <input>, <select>, <textarea> */
+.champ input,
+.champ select,
+.champ textarea {
+    background-color: var(--couleur-surface-2);
+    border: 1px solid var(--couleur-bordure);
+    border-radius: var(--rayon);
+    padding: 0.75rem 1rem;      /* LEÇON 09 : padding intérieur */
+    color: var(--couleur-texte);
+    font-family: var(--police-texte);
+    font-size: 0.95rem;
+    transition: border-color var(--transition);
+    outline: none;
+}
+
+/* Effet au focus (quand on clique sur le champ) */
+.champ input:focus,
+.champ select:focus,
+.champ textarea:focus {
+    border-color: var(--couleur-accent);
+}
+
+.champ select option {
+    background-color: var(--couleur-surface-2);
+}
+
+.champ textarea {
+    resize: vertical;           /* L'utilisateur peut redimensionner verticalement */
+    min-height: 130px;
+}
+
+
+/* =====================================================
+   FOOTER
+   LEÇON 05 + LEÇON 10 : Flexbox
+   ===================================================== */
+.footer {
+    background-color: var(--couleur-surface-2);
+    border-top: 1px solid var(--couleur-bordure);
+    padding: var(--espace-lg) 0 0;
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 var(--espace-md);
+
+    /* LEÇON 10 : trois colonnes avec Flexbox */
+    display: flex;
+    flex-direction: row;
+    gap: var(--espace-lg);
+    padding-bottom: var(--espace-lg);
+}
+
+.footer-col {
+    flex: 1;
+}
+
+.footer-logo {
+    font-family: var(--police-titre);
+    font-size: 1.3rem;
+    margin-bottom: var(--espace-xs);
+}
+
+.footer-logo strong {
+    color: var(--couleur-accent);
+}
+
+.footer-desc {
+    font-size: 0.85rem;
+    color: var(--couleur-texte-doux);
+}
+
+/* LEÇON 02 : h4 dans le footer */
+.footer-col h4 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--couleur-texte-doux);
+    margin-bottom: var(--espace-sm);
+}
+
+/* LEÇON 03 + LEÇON 04 : liste de liens footer */
+.footer-liens {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-liens li,
+.footer-liens a {
+    font-size: 0.88rem;
+    color: var(--couleur-texte-doux);
+}
+
+.footer-liens a:hover {
+    color: var(--couleur-accent);
+}
+
+/* Liste ordonnée dans le footer */
+.footer-liens.ol-style,
+ol.footer-liens {
+    list-style: decimal;
+    padding-left: 1.1rem;
+}
+
+/* Barre de copyright */
+.footer-bas {
+    border-top: 1px solid var(--couleur-bordure);
+    padding: var(--espace-sm) var(--espace-md);
+    text-align: center;
+}
+
+.footer-bas p {
+    font-size: 0.8rem;
+    color: var(--couleur-texte-doux);
+}
+
+
+/* =====================================================
+   LEÇON 12 : RESPONSIVE DESIGN — Media Queries
+   On adapte la mise en page pour les petits écrans
+   ===================================================== */
+
+/* Tablette : écrans jusqu'à 900px */
+@media (max-width: 900px) {
+
+    /* Hero : empiler contenu + décoration */
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 100px;
+        padding-bottom: var(--espace-lg);
+    }
+
+    .hero-texte {
+        max-width: 100%;
+    }
+
+    .hero-cta {
+        justify-content: center;
+    }
+
+    .hero-deco {
+        width: 200px;
+        height: 200px;
+    }
+
+    /* Services : empiler les cartes */
+    .services-grille {
+        flex-direction: column;
+    }
+
+    /* À propos : empiler les colonnes */
+    .apropos-layout {
+        flex-direction: column;
+    }
+
+    .apropos-competences {
+        width: 100%;
+    }
+
+    /* Contact : empiler les colonnes */
+    .contact-layout {
+        flex-direction: column;
+    }
+
+    /* Footer : empiler les colonnes */
+    .footer-container {
+        flex-direction: column;
+        gap: var(--espace-md);
+    }
+}
+
+/* Mobile : écrans jusqu'à 600px */
+@media (max-width: 600px) {
+
+    /* Navbar : masquer les liens, afficher le hamburger */
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background-color: var(--couleur-surface);
+        border-bottom: 1px solid var(--couleur-bordure);
+        flex-direction: column;
+        padding: var(--espace-sm);
+        gap: var(--espace-xs);
+    }
+
+    /* La classe .ouvert est ajoutée via JavaScript au clic */
+    .nav-links.ouvert {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Titres plus petits sur mobile */
+    .section-titre {
+        font-size: 1.7rem;
+    }
+
+    .hero-titre {
+        font-size: 2.2rem;
+    }
+
+    /* Boutons en colonne sur mobile */
+    .hero-cta {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}

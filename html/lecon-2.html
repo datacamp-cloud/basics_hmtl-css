@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Leçon 02 — Balises de texte</title>
+</head>
+<body>
+
+    <div class="layout">
+
+        <!-- ==============================
+             SIDEBAR : identique sur toutes
+             les pages du cours
+             ============================== -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                HTML<span>&CSS</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <p class="sidebar-section-title">Partie 1 — HTML</p>
+                <ul>
+                    <!-- La leçon active reçoit la classe "active" -->
+                    <li>
+                        <a href="lecon-1.html" >
+                            <span class="nav-num">01</span>
+                            Structure d'une page
+                        </a>
+                    </li>
+                    <li>
+                        <a href="lecon-2.html" class="active">
+                            <span class="nav-num">02</span>
+                            Balises de texte
+                        </a>
+                    </li>
+                    <li>
+                        <a href="lecon-3.html">
+                            <span class="nav-num">03</span>
+                            Listes
+                        </a>
+                    </li>
+                    <li>
+                        <a href="lecon-4.html">
+                            <span class="nav-num">04</span>
+                            Liens et images
+                        </a>
+                    </li>
+                    <li>
+                        <a href="lecon-5.html">
+                            <span class="nav-num">05</span>
+                            Sémantique HTML
+                        </a>
+                    </li>
+                    <li>
+                        <a href="lecon-6.html">
+                            <span class="nav-num">06</span>
+                            Formulaires
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <nav class="sidebar-nav">
+                <p class="sidebar-section-title">Partie 2 — CSS</p>
+                <ul>
+                    <li>
+                        <a href="lecon-7.html">
+                            <span class="nav-num">07</span>
+                            Introduction CSS
+                        </a>
+                    </li>
+                    <li>
+                        <a href="lecon-8.html">
+                            <span class="nav-num">08</span>
+                            Couleurs et polices
+                        </a>
+                    </li>
+                    <li>
+                        <a href="lecon-9.html">
+                            <span class="nav-num">09</span>
+                            Le Box Model
+                        </a>
+                    </li>
+                    <li>
+                        <a href="lecon-10.html">
+                            <span class="nav-num">10</span>
+                            Flexbox
+                        </a>
+                    </li>
+                    <li>
+                        <a href="lecon-11.html">
+                            <span class="nav-num">11</span>
+                            Mise en page
+                        </a>
+                    </li>
+                    <li>
+                        <a href="lecon-12.html">
+                            <span class="nav-num">12</span>
+                            Responsive design
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- PARTIE 3 : PROJET -->
+            <nav class="sidebar-nav">
+                <p class="sidebar-section-title">Partie 3 — Projet</p>
+                <ul>
+                    <li>
+                        <a href="projet.html">
+                            <span class="nav-num">13</span>
+                            Projet de fin
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+        </aside>
+
+        <!-- ==============================
+             CONTENU DE LA LEÇON
+             ============================== -->
+    <main class="content">
+
+        <header class="lesson-header">
+            <span class="lesson-tag">Leçon 02 · HTML</span>
+            <h1>Balises de texte</h1>
+            <p class="lesson-intro">
+                HTML propose plusieurs balises pour structurer et mettre en valeur
+                le texte. Chaque balise a un sens précis — on ne choisit pas
+                un titre parce qu'il est gros, mais parce que c'est vraiment un titre.
+            </p>
+        </header>
+
+        <!-- BLOC 1 : Les titres -->
+        <section class="lesson-block">
+            <h2>Les titres h1 → h6</h2>
+            <p>
+                Il existe 6 niveaux de titres. <code>&lt;h1&gt;</code> est le plus
+                important (un seul par page), <code>&lt;h6&gt;</code> le moins important.
+                On respecte toujours la hiérarchie : on ne saute pas de niveau.
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-tag">&lt;h1&gt;</span>Titre principal<span class="t-tag">&lt;/h1&gt;</span>
+<span class="t-tag">&lt;h2&gt;</span>Sous-titre<span class="t-tag">&lt;/h2&gt;</span>
+<span class="t-tag">&lt;h3&gt;</span>Section<span class="t-tag">&lt;/h3&gt;</span>
+<span class="t-tag">&lt;h4&gt;</span>Sous-section<span class="t-tag">&lt;/h4&gt;</span>
+<span class="t-tag">&lt;h5&gt;</span>Niveau 5<span class="t-tag">&lt;/h5&gt;</span>
+<span class="t-tag">&lt;h6&gt;</span>Niveau 6<span class="t-tag">&lt;/h6&gt;</span></pre>
+                </div>
+                <div class="rendu-zone">
+                    <div>
+                        <h1 style="font-size:1.6rem;margin:0 0 4px;">Titre principal</h1>
+                        <h2 style="font-size:1.3rem;margin:0 0 4px;">Sous-titre</h2>
+                        <h3 style="font-size:1.1rem;margin:0 0 4px;">Section</h3>
+                        <h4 style="font-size:1rem;margin:0 0 4px;">Sous-section</h4>
+                        <h5 style="font-size:0.9rem;margin:0 0 4px;">Niveau 5</h5>
+                        <h6 style="font-size:0.8rem;margin:0;">Niveau 6</h6>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOC 2 : Le paragraphe -->
+        <section class="lesson-block">
+            <h2>Le paragraphe &lt;p&gt;</h2>
+            <p>
+                La balise <code>&lt;p&gt;</code> définit un bloc de texte.
+                Chaque <code>&lt;p&gt;</code> crée automatiquement un espace
+                avant et après lui. C'est la balise de texte la plus utilisée.
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-tag">&lt;p&gt;</span>
+  Voici mon premier paragraphe.
+  Il peut contenir plusieurs phrases.
+<span class="t-tag">&lt;/p&gt;</span>
+
+<span class="t-tag">&lt;p&gt;</span>
+  Voici un deuxième paragraphe.
+  Il est séparé du premier
+  automatiquement.
+<span class="t-tag">&lt;/p&gt;</span></pre>
+                </div>
+                <div class="rendu-zone">
+                    <div>
+                        <p style="margin-bottom:0.75rem;">Voici mon premier paragraphe. Il peut contenir plusieurs phrases.</p>
+                        <p>Voici un deuxième paragraphe. Il est séparé du premier automatiquement.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOC 3 : Gras et italique -->
+        <section class="lesson-block">
+            <h2>Mettre en valeur : &lt;strong&gt; et &lt;em&gt;</h2>
+            <p>
+                <code>&lt;strong&gt;</code> signifie "important" (s'affiche en gras).
+                <code>&lt;em&gt;</code> signifie "accentué" (s'affiche en italique).
+                On ne les utilise pas juste pour le style visuel, mais pour donner
+                du <em>sens</em> au contenu.
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-tag">&lt;p&gt;</span>
+  Ne jamais oublier de sauvegarder
+  <span class="t-tag">&lt;strong&gt;</span>son travail<span class="t-tag">&lt;/strong&gt;</span>
+  régulièrement.
+<span class="t-tag">&lt;/p&gt;</span>
+
+<span class="t-tag">&lt;p&gt;</span>
+  On dit souvent que la pratique
+  est <span class="t-tag">&lt;em&gt;</span>la clé<span class="t-tag">&lt;/em&gt;</span>
+  de l'apprentissage.
+<span class="t-tag">&lt;/p&gt;</span></pre>
+                </div>
+                <div class="rendu-zone">
+                    <div>
+                        <p style="margin-bottom:0.75rem;">Ne jamais oublier de sauvegarder <strong>son travail</strong> régulièrement.</p>
+                        <p>On dit souvent que la pratique est <em>la clé</em> de l'apprentissage.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOC 4 : inline vs block -->
+        <section class="lesson-block">
+            <h2>Balises "block" vs balises "inline"</h2>
+            <p>
+                C'est une distinction fondamentale en HTML. Une balise <strong>block</strong>
+                prend toute la largeur disponible et crée un saut de ligne.
+                Une balise <strong>inline</strong> se glisse dans le texte sans interrompre la ligne.
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-com">&lt;!-- BLOCK : chacun sur sa propre ligne --&gt;</span>
+<span class="t-tag">&lt;h2&gt;</span>Je suis block<span class="t-tag">&lt;/h2&gt;</span>
+<span class="t-tag">&lt;p&gt;</span>Je suis aussi block<span class="t-tag">&lt;/p&gt;</span>
+
+<span class="t-com">&lt;!-- INLINE : reste dans le flux du texte --&gt;</span>
+<span class="t-tag">&lt;p&gt;</span>
+  Texte normal,
+  <span class="t-tag">&lt;strong&gt;</span>texte gras<span class="t-tag">&lt;/strong&gt;</span>,
+  texte normal.
+<span class="t-tag">&lt;/p&gt;</span></pre>
+                </div>
+                <div class="rendu-zone">
+                    <div style="width:100%;">
+                        <div style="background:#fff7ed;border:1px dashed #f97316;padding:4px 8px;margin-bottom:4px;font-size:0.9rem;">
+                            Je suis block — je prends toute la largeur
+                        </div>
+                        <div style="background:#fff7ed;border:1px dashed #f97316;padding:4px 8px;margin-bottom:12px;font-size:0.9rem;">
+                            Je suis aussi block
+                        </div>
+                        <p style="font-size:0.9rem;">Texte normal, <strong>texte gras</strong>, texte normal.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="points-cles">
+            <h3>Points clés à retenir</h3>
+            <ul>
+                <li>Un seul <code>&lt;h1&gt;</code> par page — c'est le titre principal</li>
+                <li>On respecte la hiérarchie h1 → h2 → h3, sans sauter de niveau</li>
+                <li><code>&lt;strong&gt;</code> = important (gras), <code>&lt;em&gt;</code> = accentué (italique)</li>
+                <li><code>&lt;h1&gt;</code> à <code>&lt;h6&gt;</code> et <code>&lt;p&gt;</code> sont des balises "block"</li>
+                <li><code>&lt;strong&gt;</code> et <code>&lt;em&gt;</code> sont des balises "inline"</li>
+            </ul>
+        </div>
+
+            <!-- NAVIGATION BAS DE PAGE -->
+            <nav class="lesson-nav">
+                <a href="lecon-1.html" class="btn-nav">
+                    ← Leçon 01
+                </a>
+                <a href="lecon-3.html" class="btn-nav primary">
+                    Leçon 03 : Les Listes →
+                </a>
+            </nav>
+
+        </main>
+    </div>
+
+</body>
+</html>

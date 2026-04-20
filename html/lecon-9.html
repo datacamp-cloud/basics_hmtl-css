@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Leçon 09 — Le Box Model</title>
+</head>
+<body>
+<div class="layout">
+
+    <aside class="sidebar">
+        <div class="sidebar-logo">HTML<span>&CSS</span></div>
+        <nav class="sidebar-nav">
+            <p class="sidebar-section-title">Partie 1 — HTML</p>
+            <ul>
+                <li><a href="lecon-1.html"><span class="nav-num">01</span>Structure d'une page</a></li>
+                <li><a href="lecon-2.html"><span class="nav-num">02</span>Balises de texte</a></li>
+                <li><a href="lecon-3.html"><span class="nav-num">03</span>Listes</a></li>
+                <li><a href="lecon-4.html"><span class="nav-num">04</span>Liens et images</a></li>
+                <li><a href="lecon-5.html"><span class="nav-num">05</span>Sémantique HTML</a></li>
+                <li><a href="lecon-6.html"><span class="nav-num">06</span>Formulaires</a></li>
+            </ul>
+        </nav>
+        <nav class="sidebar-nav">
+            <p class="sidebar-section-title">Partie 2 — CSS</p>
+            <ul>
+                <li><a href="lecon-7.html"><span class="nav-num">07</span>Introduction CSS</a></li>
+                <li><a href="lecon-8.html"><span class="nav-num">08</span>Couleurs et polices</a></li>
+                <li><a href="lecon-9.html" class="active"><span class="nav-num">09</span>Le Box Model</a></li>
+                <li><a href="lecon-10.html"><span class="nav-num">10</span>Flexbox</a></li>
+                <li><a href="lecon-11.html"><span class="nav-num">11</span>Mise en page</a></li>
+                <li><a href="lecon-12.html"><span class="nav-num">12</span>Responsive design</a></li>
+            </ul>
+        </nav>
+        <!-- PARTIE 3 : PROJET -->
+            <nav class="sidebar-nav">
+                <p class="sidebar-section-title">Partie 3 — Projet</p>
+                <ul>
+                    <li>
+                        <a href="projet.html">
+                            <span class="nav-num">13</span>
+                            Projet de fin
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+    </aside>
+
+    <main class="content">
+
+        <header class="lesson-header">
+            <span class="lesson-tag">Leçon 09 · CSS</span>
+            <h1>Le Box Model</h1>
+            <p class="lesson-intro">
+                C'est <em>le</em> concept fondamental du CSS. Tout élément HTML
+                est une boîte rectangulaire. Cette boîte est composée de
+                4 couches. Comprendre le box model, c'est comprendre
+                comment tout se positionne sur une page web.
+            </p>
+        </header>
+
+        <!-- BLOC 1 : les 4 couches -->
+        <section class="lesson-block">
+            <h2>Les 4 couches de la boîte</h2>
+            <p>
+                De l'intérieur vers l'extérieur : le contenu,
+                le padding, la bordure, et la marge.
+                Chaque couche a un rôle précis.
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-attr">.carte</span> {
+  <span class="t-com">/* 1. Le contenu : largeur et hauteur */</span>
+  <span class="t-tag">width</span>: <span class="t-val">200px</span>;
+  <span class="t-tag">height</span>: <span class="t-val">80px</span>;
+
+  <span class="t-com">/* 2. Padding : espace INTÉRIEUR
+        entre le contenu et la bordure */</span>
+  <span class="t-tag">padding</span>: <span class="t-val">20px</span>;
+
+  <span class="t-com">/* 3. Border : la bordure */</span>
+  <span class="t-tag">border</span>: <span class="t-val">2px solid #333</span>;
+
+  <span class="t-com">/* 4. Margin : espace EXTÉRIEUR
+        entre cet élément et les autres */</span>
+  <span class="t-tag">margin</span>: <span class="t-val">30px</span>;
+}</pre>
+                </div>
+                <div class="rendu-zone">
+                    <div style="background:#fef9c3;padding:20px;border-radius:6px;">
+                        <p style="font-size:0.7rem;color:#92400e;margin-bottom:8px;text-align:center;">margin (espace extérieur)</p>
+                        <div style="background:#fed7aa;padding:12px;border-radius:4px;">
+                            <p style="font-size:0.7rem;color:#9a3412;margin-bottom:6px;text-align:center;">border</p>
+                            <div style="background:#bbf7d0;padding:10px;border-radius:4px;">
+                                <p style="font-size:0.7rem;color:#166534;margin-bottom:6px;text-align:center;">padding (espace intérieur)</p>
+                                <div style="background:#bfdbfe;padding:8px;border-radius:4px;text-align:center;">
+                                    <p style="font-size:0.75rem;color:#1e40af;font-weight:500;">contenu</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOC 2 : padding vs margin -->
+        <section class="lesson-block">
+            <h2>Padding vs Margin : la différence clé</h2>
+            <p>
+                C'est la confusion la plus courante. Retiens ceci :
+                le <strong>padding</strong> est à l'intérieur de la boîte
+                (espace entre le texte et la bordure),
+                la <strong>margin</strong> est à l'extérieur
+                (espace entre deux éléments).
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-com">/* Padding : espace intérieur */</span>
+<span class="t-attr">.btn</span> {
+  <span class="t-tag">padding</span>: <span class="t-val">10px 20px</span>;
+  <span class="t-com">/* 10px haut/bas, 20px gauche/droite */</span>
+  <span class="t-tag">background</span>: <span class="t-val">orange</span>;
+}
+
+<span class="t-com">/* Margin : espace extérieur */</span>
+<span class="t-attr">.carte</span> {
+  <span class="t-tag">margin</span>: <span class="t-val">0 auto</span>;
+  <span class="t-com">/* 0 haut/bas, auto gauche/droite
+     → centre l'élément horizontalement */</span>
+  <span class="t-tag">max-width</span>: <span class="t-val">600px</span>;
+}</pre>
+                </div>
+                <div class="rendu-zone">
+                    <div style="display:flex;flex-direction:column;gap:16px;width:100%;">
+                        <div>
+                            <p style="font-size:0.75rem;color:#64748b;margin-bottom:6px;">Padding petit vs grand :</p>
+                            <div style="display:flex;gap:10px;align-items:center;">
+                                <span style="background:#f97316;color:white;padding:2px 6px;border-radius:4px;font-size:0.8rem;">padding petit</span>
+                                <span style="background:#f97316;color:white;padding:12px 24px;border-radius:4px;font-size:0.8rem;">padding grand</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p style="font-size:0.75rem;color:#64748b;margin-bottom:6px;">margin: 0 auto → centrage :</p>
+                            <div style="border:1px dashed #e2e8f0;padding:4px;border-radius:4px;">
+                                <div style="max-width:120px;margin:0 auto;background:#eff6ff;padding:8px;border-radius:4px;text-align:center;font-size:0.8rem;border:1px solid #bfdbfe;">centré</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOC 3 : box-sizing -->
+        <section class="lesson-block">
+            <h2>box-sizing : le piège à éviter</h2>
+            <p>
+                Par défaut, quand tu définis <code>width: 200px</code>,
+                le padding et la bordure s'ajoutent à cette largeur —
+                l'élément fait donc plus de 200px. Avec
+                <code>box-sizing: border-box</code>, le padding et la bordure
+                sont inclus dans la largeur. C'est pourquoi on l'applique
+                toujours en premier dans le reset CSS.
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-com">/* Comportement par défaut (piège) */</span>
+<span class="t-attr">.boite</span> {
+  <span class="t-tag">width</span>: <span class="t-val">200px</span>;
+  <span class="t-tag">padding</span>: <span class="t-val">20px</span>;
+  <span class="t-com">/* Taille réelle = 200 + 40 = 240px ❌ */</span>
+}
+
+<span class="t-com">/* Avec border-box (bonne pratique) */</span>
+<span class="t-attr">*</span> {
+  <span class="t-tag">box-sizing</span>: <span class="t-val">border-box</span>;
+}
+<span class="t-attr">.boite</span> {
+  <span class="t-tag">width</span>: <span class="t-val">200px</span>;
+  <span class="t-tag">padding</span>: <span class="t-val">20px</span>;
+  <span class="t-com">/* Taille réelle = 200px ✅ */</span>
+}</pre>
+                </div>
+                <div class="rendu-zone">
+                    <div style="display:flex;flex-direction:column;gap:12px;width:100%;font-size:0.82rem;">
+                        <div>
+                            <p style="color:#64748b;margin-bottom:4px;">Sans border-box : déborde ❌</p>
+                            <div style="width:160px;padding:16px;background:#fef2f2;border:1px dashed #fca5a5;font-size:0.78rem;color:#dc2626;">
+                                160px + 32px padding = 192px réels
+                            </div>
+                        </div>
+                        <div>
+                            <p style="color:#64748b;margin-bottom:4px;">Avec border-box : reste 160px ✅</p>
+                            <div style="width:160px;padding:16px;background:#f0fdf4;border:1px dashed #86efac;box-sizing:border-box;font-size:0.78rem;color:#166534;">
+                                Exactement 160px
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOC 4 : la notation raccourcie -->
+        <section class="lesson-block">
+            <h2>La notation raccourcie</h2>
+            <p>
+                <code>padding</code> et <code>margin</code> acceptent
+                1, 2, 3 ou 4 valeurs. C'est un raccourci très utilisé
+                pour éviter d'écrire quatre propriétés séparées.
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-com">/* 1 valeur : tous les côtés */</span>
+<span class="t-tag">padding</span>: <span class="t-val">20px</span>;
+
+<span class="t-com">/* 2 valeurs : haut/bas  gauche/droite */</span>
+<span class="t-tag">padding</span>: <span class="t-val">10px 20px</span>;
+
+<span class="t-com">/* 3 valeurs : haut  gauche/droite  bas */</span>
+<span class="t-tag">padding</span>: <span class="t-val">10px 20px 30px</span>;
+
+<span class="t-com">/* 4 valeurs : haut  droite  bas  gauche
+   (sens des aiguilles d'une montre) */</span>
+<span class="t-tag">padding</span>: <span class="t-val">10px 20px 30px 40px</span>;
+
+<span class="t-com">/* Côtés individuels */</span>
+<span class="t-tag">padding-top</span>: <span class="t-val">10px</span>;
+<span class="t-tag">padding-right</span>: <span class="t-val">20px</span>;
+<span class="t-tag">margin-bottom</span>: <span class="t-val">30px</span>;
+<span class="t-tag">margin-left</span>: <span class="t-val">40px</span>;</pre>
+                </div>
+                <div class="rendu-zone">
+                    <div style="font-size:0.78rem;display:flex;flex-direction:column;gap:8px;width:100%;">
+                        <div style="background:#eff6ff;border:1px solid #bfdbfe;padding:8px;border-radius:4px;text-align:center;">
+                            padding: 8px → <span style="color:#1d4ed8;">uniforme</span>
+                        </div>
+                        <div style="background:#eff6ff;border:1px solid #bfdbfe;padding:4px 20px;border-radius:4px;text-align:center;">
+                            padding: 4px 20px → <span style="color:#1d4ed8;">plat et large</span>
+                        </div>
+                        <div style="background:#eff6ff;border:1px solid #bfdbfe;padding:16px 8px 4px;border-radius:4px;text-align:center;">
+                            padding: 16px 8px 4px → <span style="color:#1d4ed8;">haut lourd</span>
+                        </div>
+                        <p style="color:#64748b;font-size:0.75rem;margin-top:4px;">
+                            Mémo : sens ↑ → ↓ ← (comme une montre)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="points-cles">
+            <h3>Points clés à retenir</h3>
+            <ul>
+                <li>Tout élément HTML est une boîte : <strong>contenu → padding → border → margin</strong></li>
+                <li><code>padding</code> = espace intérieur (entre le texte et la bordure)</li>
+                <li><code>margin</code> = espace extérieur (entre deux éléments)</li>
+                <li>Toujours déclarer <code>* { box-sizing: border-box; }</code> en début de CSS</li>
+                <li><code>margin: 0 auto</code> sur un bloc avec <code>max-width</code> le centre horizontalement</li>
+            </ul>
+        </div>
+
+        <nav class="lesson-nav">
+            <a href="lecon-8.html" class="btn-nav">← Leçon 08</a>
+            <a href="lecon-10.html" class="btn-nav primary">Leçon 10 : Flexbox →</a>
+        </nav>
+
+    </main>
+</div>
+</body>
+</html>

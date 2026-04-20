@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Leçon 10 — Flexbox</title>
+</head>
+<body>
+<div class="layout">
+
+    <aside class="sidebar">
+        <div class="sidebar-logo">HTML<span>&CSS</span></div>
+        <nav class="sidebar-nav">
+            <p class="sidebar-section-title">Partie 1 — HTML</p>
+            <ul>
+                <li><a href="lecon-1.html"><span class="nav-num">01</span>Structure d'une page</a></li>
+                <li><a href="lecon-2.html"><span class="nav-num">02</span>Balises de texte</a></li>
+                <li><a href="lecon-3.html"><span class="nav-num">03</span>Listes</a></li>
+                <li><a href="lecon-4.html"><span class="nav-num">04</span>Liens et images</a></li>
+                <li><a href="lecon-5.html"><span class="nav-num">05</span>Sémantique HTML</a></li>
+                <li><a href="lecon-6.html"><span class="nav-num">06</span>Formulaires</a></li>
+            </ul>
+        </nav>
+        <nav class="sidebar-nav">
+            <p class="sidebar-section-title">Partie 2 — CSS</p>
+            <ul>
+                <li><a href="lecon-7.html"><span class="nav-num">07</span>Introduction CSS</a></li>
+                <li><a href="lecon-8.html"><span class="nav-num">08</span>Couleurs et polices</a></li>
+                <li><a href="lecon-9.html"><span class="nav-num">09</span>Le Box Model</a></li>
+                <li><a href="lecon-10.html" class="active"><span class="nav-num">10</span>Flexbox</a></li>
+                <li><a href="lecon-11.html"><span class="nav-num">11</span>Mise en page</a></li>
+                <li><a href="lecon-12.html"><span class="nav-num">12</span>Responsive design</a></li>
+            </ul>
+        </nav>
+        <!-- PARTIE 3 : PROJET -->
+            <nav class="sidebar-nav">
+                <p class="sidebar-section-title">Partie 3 — Projet</p>
+                <ul>
+                    <li>
+                        <a href="projet.html">
+                            <span class="nav-num">13</span>
+                            Projet de fin
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+    </aside>
+
+    <main class="content">
+
+        <header class="lesson-header">
+            <span class="lesson-tag">Leçon 10 · CSS</span>
+            <h1>Flexbox</h1>
+            <p class="lesson-intro">
+                Flexbox est la méthode moderne pour aligner et répartir des éléments dans un conteneur.
+                Une fois les notions de conteneur et d'éléments flex comprises, la mise en page devient beaucoup plus simple.
+            </p>
+        </header>
+
+        <section class="lesson-block">
+            <h2>Le conteneur flex</h2>
+            <p>
+                Pour activer Flexbox, on transforme un parent en conteneur flex avec
+                <code>display: flex</code>. Ensuite, les enfants deviennent des éléments flex.
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-attr">.barre</span> {
+  <span class="t-tag">display</span>: <span class="t-val">flex</span>;
+  <span class="t-tag">gap</span>: <span class="t-val">16px</span>;
+  <span class="t-tag">padding</span>: <span class="t-val">16px</span>;
+  <span class="t-tag">background</span>: <span class="t-val">#f8fafc</span>;
+}
+
+<span class="t-attr">.barre &gt; div</span> {
+  <span class="t-tag">background</span>: <span class="t-val">#38bdf8</span>;
+  <span class="t-tag">color</span>: <span class="t-val">white</span>;
+  <span class="t-tag">padding</span>: <span class="t-val">12px 18px</span>;
+  <span class="t-tag">border-radius</span>: <span class="t-val">8px</span>;
+}</pre>
+                </div>
+                <div class="rendu-zone">
+                    <div style="display:flex;gap:16px;padding:16px;background:#f8fafc;border-radius:12px;">
+                        <div style="background:#38bdf8;color:white;padding:12px 18px;border-radius:8px;">Élément 1</div>
+                        <div style="background:#0ea5e9;color:white;padding:12px 18px;border-radius:8px;">Élément 2</div>
+                        <div style="background:#0284c7;color:white;padding:12px 18px;border-radius:8px;">Élément 3</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-block">
+            <h2>Direction et alignement</h2>
+            <p>
+                <strong>flex-direction</strong> choisit l'axe principal (ligne ou colonne).
+                <strong>justify-content</strong> place les éléments sur l'axe principal,
+                et <strong>align-items</strong> les aligne sur l'axe secondaire.
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-attr">.menu</span> {
+  <span class="t-tag">display</span>: <span class="t-val">flex</span>;
+  <span class="t-tag">flex-direction</span>: <span class="t-val">column</span>;
+  <span class="t-tag">gap</span>: <span class="t-val">12px</span>;
+  <span class="t-tag">align-items</span>: <span class="t-val">center</span>;
+  <span class="t-tag">justify-content</span>: <span class="t-val">space-between</span>;
+  <span class="t-tag">height</span>: <span class="t-val">240px</span>;
+}</pre>
+                </div>
+                <div class="rendu-zone">
+                    <div style="display:flex;flex-direction:column;align-items:center;justify-content:space-between;height:240px;padding:16px;background:#e0f2fe;border-radius:12px;">
+                        <div style="background:#0c4a6e;color:white;padding:10px 16px;border-radius:8px;">Haut</div>
+                        <div style="background:#0284c7;color:white;padding:10px 16px;border-radius:8px;">Centre</div>
+                        <div style="background:#0c4a6e;color:white;padding:10px 16px;border-radius:8px;">Bas</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-block">
+            <h2>La taille flexible</h2>
+            <p>
+                <code>flex</code> permet à un élément de grandir, rapetisser ou partir d'une valeur de base.
+                Utilisé souvent avec <code>flex: 1</code> pour répartir l'espace disponible.
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-attr">.cartes</span> {
+  <span class="t-tag">display</span>: <span class="t-val">flex</span>;
+  <span class="t-tag">gap</span>: <span class="t-val">16px</span>;
+}
+
+<span class="t-attr">.carte</span> {
+  <span class="t-tag">flex</span>: <span class="t-val">1</span>;
+  <span class="t-tag">padding</span>: <span class="t-val">18px</span>;
+  <span class="t-tag">background</span>: <span class="t-val">#dbeafe</span>;
+  <span class="t-tag">border-radius</span>: <span class="t-val">10px</span>;
+}</pre>
+                </div>
+                <div class="rendu-zone">
+                    <div style="display:flex;gap:16px;">
+                        <div style="flex:1;padding:18px;background:#dbeafe;border-radius:10px;text-align:center;">Carte 1</div>
+                        <div style="flex:1;padding:18px;background:#bfdbfe;border-radius:10px;text-align:center;">Carte 2</div>
+                        <div style="flex:1;padding:18px;background:#93c5fd;border-radius:10px;text-align:center;">Carte 3</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-block">
+            <h2>Changer l'ordre</h2>
+            <p>
+                Avec <code>order</code>, on peut réorganiser les éléments sans modifier l'HTML.
+                Cela reste très pratique pour les mises en page responsive.
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-attr">.ligne</span> {
+  <span class="t-tag">display</span>: <span class="t-val">flex</span>;
+  <span class="t-tag">gap</span>: <span class="t-val">12px</span>;
+}
+
+<span class="t-attr">.item-1</span> { <span class="t-tag">order</span>: <span class="t-val">2</span>; }
+<span class="t-attr">.item-2</span> { <span class="t-tag">order</span>: <span class="t-val">1</span>; }</pre>
+                </div>
+                <div class="rendu-zone">
+                    <div style="display:flex;gap:12px;">
+                        <div style="order:2;padding:14px;background:#e0f2fe;border-radius:8px;">1</div>
+                        <div style="order:1;padding:14px;background:#38bdf8;color:white;border-radius:8px;">2</div>
+                        <div style="order:3;padding:14px;background:#7dd3fc;border-radius:8px;">3</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="points-cles">
+            <h3>Points clés à retenir</h3>
+            <ul>
+                <li><strong>display: flex</strong> transforme un parent en conteneur flexible.</li>
+                <li><strong>justify-content</strong> gère l'axe principal, <strong>align-items</strong> l'axe secondaire.</li>
+                <li><strong>flex</strong> répartit l'espace entre plusieurs éléments.</li>
+                <li><strong>order</strong> change l'ordre visuel sans toucher à l'HTML.</li>
+            </ul>
+        </div>
+
+        <nav class="lesson-nav">
+            <a href="lecon-9.html" class="btn-nav">← Leçon 09</a>
+            <a href="lecon-11.html" class="btn-nav primary">Leçon 11 : Mise en page →</a>
+        </nav>
+    </main>
+</div>
+</body>
+</html>

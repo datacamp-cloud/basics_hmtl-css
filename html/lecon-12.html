@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Leçon 12 : Responsive design</title>
+</head>
+<body>
+<div class="layout">
+
+    <aside class="sidebar">
+        <div class="sidebar-logo">HTML<span>&CSS</span></div>
+        <nav class="sidebar-nav">
+            <p class="sidebar-section-title">Partie 1 : HTML</p>
+            <ul>
+                <li><a href="lecon-1.html"><span class="nav-num">01</span>Structure d'une page</a></li>
+                <li><a href="lecon-2.html"><span class="nav-num">02</span>Balises de texte</a></li>
+                <li><a href="lecon-3.html"><span class="nav-num">03</span>Listes</a></li>
+                <li><a href="lecon-4.html"><span class="nav-num">04</span>Liens et images</a></li>
+                <li><a href="lecon-5.html"><span class="nav-num">05</span>Sémantique HTML</a></li>
+                <li><a href="lecon-6.html"><span class="nav-num">06</span>Formulaires</a></li>
+            </ul>
+        </nav>
+        <nav class="sidebar-nav">
+            <p class="sidebar-section-title">Partie 2 : CSS</p>
+            <ul>
+                <li><a href="lecon-7.html"><span class="nav-num">07</span>Introduction CSS</a></li>
+                <li><a href="lecon-8.html"><span class="nav-num">08</span>Couleurs et polices</a></li>
+                <li><a href="lecon-9.html"><span class="nav-num">09</span>Le Box Model</a></li>
+                <li><a href="lecon-10.html"><span class="nav-num">10</span>Flexbox</a></li>
+                <li><a href="lecon-11.html"><span class="nav-num">11</span>Mise en page</a></li>
+                <li><a href="lecon-12.html" class="active"><span class="nav-num">12</span>Responsive design</a></li>
+            </ul>
+        </nav>
+        <!-- PARTIE 3 : PROJET -->
+            <nav class="sidebar-nav">
+                <p class="sidebar-section-title">Partie 3 — Projet</p>
+                <ul>
+                    <li>
+                        <a href="projet.html">
+                            <span class="nav-num">13</span>
+                            Projet de fin
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+    </aside>
+
+    <main class="content">
+
+        <header class="lesson-header">
+            <span class="lesson-tag">Leçon 12 : CSS</span>
+            <h1>Responsive design</h1>
+            <p class="lesson-intro">
+                Le responsive design rend le site utilisable sur mobile, tablette et ordinateur.
+                On adapte les styles en fonction de la largeur de l'écran pour garder un bon rendu partout.
+            </p>
+        </header>
+
+        <section class="lesson-block">
+            <h2>Les media queries</h2>
+            <p>
+                Les media queries permettent de changer les styles selon la largeur de l'écran.
+                C'est l'outil principal pour ajuster une mise en page responsive.
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-attr">.page</span> {
+  <span class="t-tag">padding</span>: <span class="t-val">24px</span>;
+}
+
+<span class="t-attr">@media screen and (max-width: 768px)</span> {
+  <span class="t-attr">.page</span> {
+    <span class="t-tag">padding</span>: <span class="t-val">16px</span>;
+  }
+}
+</pre>
+                </div>
+                <div class="rendu-zone">
+                    <div style="padding:24px;background:#eff6ff;border-radius:14px;">
+                        <p style="margin:0;color:#1e3a8a;">Sur grand écran : plus d'espace autour du contenu.</p>
+                        <p style="margin:8px 0 0;color:#334155;">Sur mobile, on réduit les marges pour maximiser l'espace de lecture.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-block">
+            <h2>Changer la disposition</h2>
+            <p>
+                Il est courant de passer d'une disposition en lignes à une disposition en colonnes
+                sur les petits écrans pour éviter les éléments trop serrés. Ici on applique <code>flex-direction: column</code> dans une media query pour empiler les éléments. 
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-attr">.bloc</span> {
+  <span class="t-tag">display</span>: <span class="t-val">flex</span>;
+  <span class="t-tag">gap</span>: <span class="t-val">18px</span>;
+}
+
+<span class="t-attr">@media screen and (max-width: 720px)</span> {
+  <span class="t-attr">.bloc</span> {
+    <span class="t-tag">flex-direction</span>: <span class="t-val">column</span>;
+  }
+}
+</pre>
+                </div>
+                <div class="rendu-zone">
+                    <div style="display:flex;gap:18px;padding:16px;background:#f8fafc;border-radius:12px;flex-wrap:wrap;">
+                        <div style="flex:1;min-width:180px;padding:18px;background:#dbeafe;border-radius:12px;">Colonne 1</div>
+                        <div style="flex:1;min-width:180px;padding:18px;background:#bfdbfe;border-radius:12px;">Colonne 2</div>
+                        <div style="flex:1;min-width:180px;padding:18px;background:#93c5fd;border-radius:12px;">Colonne 3</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-block">
+            <h2>Texte et images adaptatives</h2>
+            <p>
+                Les images et les textes doivent s'adapter aux différents écrans.
+                Utilise <code>max-width: 100%</code> pour les images et des unités relatives pour le texte.
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-attr">img</span> {
+  <span class="t-tag">max-width</span>: <span class="t-val">100%</span>;
+  <span class="t-tag">height</span>: <span class="t-val">auto</span>;
+}
+
+<span class="t-attr">.titre</span> {
+  <span class="t-tag">font-size</span>: <span class="t-val">clamp(1.4rem, 2vw, 2.5rem)</span>;
+}
+</pre>
+                </div>
+                <div class="rendu-zone">
+                    <div style="padding:18px;background:#eff6ff;border-radius:14px;">
+                        <h3 style="font-size:clamp(1.4rem,2vw,2rem);margin-bottom:12px;color:#1e293b;">Titre adaptatif</h3>
+                        <div style="background:white;border:1px solid #cbd5e1;border-radius:12px;overflow:hidden;">
+                            <img src="https://via.placeholder.com/640x240" alt="Exemple" style="display:block;width:100%;height:auto;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-block">
+            <h2>Prioriser le contenu</h2>
+            <p>
+                Sur mobile, on masque ou réorganise certains éléments pour clarifier la page.
+                Le bloc le plus important doit rester visible en premier. 
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-attr">.aside</span> {
+  <span class="t-tag">display</span>: <span class="t-val">block</span>;
+}
+
+<span class="t-attr">@media screen and (max-width: 640px)</span> {
+  <span class="t-attr">.aside</span> {
+    <span class="t-tag">display</span>: <span class="t-val">none</span>;
+  }
+}
+</pre>
+                </div>
+                <div class="rendu-zone">
+                    <div style="display:grid;gap:16px;padding:18px;background:#fff7ed;border-radius:14px;">
+                        <div style="padding:16px;background:#fef3c7;border-radius:12px;">Contenu principal</div>
+                        <div style="padding:16px;background:#fde68a;border-radius:12px;">Contenu secondaire</div>
+                    </div>
+                </div>
+            </div><br>
+            <p>Le display: none permet de masquer un élément sur les petits écrans pour alléger la page.</p>
+        </section>
+
+        <div class="points-cles">
+            <h3>Points clés à retenir</h3>
+            <ul>
+                <li>Les media queries adaptent le style selon la taille d'écran.</li>
+                <li>Passer de lignes à colonnes aide les petits écrans.</li>
+                <li>Les images responsives utilisent <code>max-width: 100%</code>.</li>
+                <li>Sur mobile, priorise le contenu le plus important.</li>
+            </ul>
+        </div>
+
+        <nav class="lesson-nav">
+            <a href="lecon-11.html" class="btn-nav">← Leçon 11</a>
+            <a href="/recap.html" class="btn-nav primary">Récapitulatif →</a>
+        </nav>
+    </main>
+</div>
+</body>
+</html>

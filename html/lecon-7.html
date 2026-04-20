@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Leçon 07 — Introduction CSS</title>
+</head>
+<body>
+<div class="layout">
+
+    <aside class="sidebar">
+        <div class="sidebar-logo">HTML<span>&CSS</span></div>
+        <nav class="sidebar-nav">
+            <p class="sidebar-section-title">Partie 1 — HTML</p>
+            <ul>
+                <li><a href="lecon-1.html"><span class="nav-num">01</span>Structure d'une page</a></li>
+                <li><a href="lecon-2.html"><span class="nav-num">02</span>Balises de texte</a></li>
+                <li><a href="lecon-3.html"><span class="nav-num">03</span>Listes</a></li>
+                <li><a href="lecon-4.html"><span class="nav-num">04</span>Liens et images</a></li>
+                <li><a href="lecon-5.html"><span class="nav-num">05</span>Sémantique HTML</a></li>
+                <li><a href="lecon-6.html"><span class="nav-num">06</span>Formulaires</a></li>
+            </ul>
+        </nav>
+        <nav class="sidebar-nav">
+            <p class="sidebar-section-title">Partie 2 — CSS</p>
+            <ul>
+                <li><a href="lecon-7.html" class="active"><span class="nav-num">07</span>Introduction CSS</a></li>
+                <li><a href="lecon-8.html"><span class="nav-num">08</span>Couleurs et polices</a></li>
+                <li><a href="lecon-9.html"><span class="nav-num">09</span>Le Box Model</a></li>
+                <li><a href="lecon-10.html"><span class="nav-num">10</span>Flexbox</a></li>
+                <li><a href="lecon-11.html"><span class="nav-num">11</span>Mise en page</a></li>
+                <li><a href="lecon-12.html"><span class="nav-num">12</span>Responsive design</a></li>
+            </ul>
+        </nav>
+        <!-- PARTIE 3 : PROJET -->
+            <nav class="sidebar-nav">
+                <p class="sidebar-section-title">Partie 3 — Projet</p>
+                <ul>
+                    <li>
+                        <a href="projet.html">
+                            <span class="nav-num">13</span>
+                            Projet de fin
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+    </aside>
+
+    <main class="content">
+
+        <header class="lesson-header">
+            <span class="lesson-tag">Leçon 07 · CSS</span>
+            <h1>Introduction CSS</h1>
+            <p class="lesson-intro">
+                Le CSS — <em>Cascading Style Sheets</em> — est le langage qui
+                habille le HTML. Si HTML est le squelette, CSS est la peau,
+                les vêtements et la mise en scène. On commence ici par comprendre
+                comment il fonctionne avant de le pratiquer.
+            </p>
+        </header>
+
+        <!-- BLOC 1 : anatomie d'une règle CSS -->
+        <section class="lesson-block">
+            <h2>Anatomie d'une règle CSS</h2>
+            <p>
+                Une règle CSS se compose toujours de la même façon :
+                un <strong>sélecteur</strong> qui cible un élément HTML,
+                et des <strong>déclarations</strong> entre accolades qui
+                définissent le style à appliquer.
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-com">/* Sélecteur { propriété: valeur; } */</span>
+
+<span class="t-attr">h1</span> {
+  <span class="t-tag">color</span>: <span class="t-val">orange</span>;
+  <span class="t-tag">font-size</span>: <span class="t-val">2rem</span>;
+}
+
+<span class="t-attr">p</span> {
+  <span class="t-tag">color</span>: <span class="t-val">#555555</span>;
+  <span class="t-tag">line-height</span>: <span class="t-val">1.6</span>;
+}</pre>
+                </div>
+                <div class="rendu-zone">
+                    <div>
+                        <div style="display:flex;flex-direction:column;gap:6px;font-size:0.82rem;background:#f8fafc;padding:12px;border-radius:6px;border:1px solid #e2e8f0;">
+                            <div style="display:flex;align-items:center;gap:8px;">
+                                <span style="background:#fff7ed;color:#f97316;padding:2px 8px;border-radius:4px;font-size:0.78rem;">sélecteur</span>
+                                <code style="color:#1e293b;">h1</code>
+                                <span style="color:#64748b;">→ cible tous les &lt;h1&gt;</span>
+                            </div>
+                            <div style="display:flex;align-items:center;gap:8px;">
+                                <span style="background:#eff6ff;color:#2563eb;padding:2px 8px;border-radius:4px;font-size:0.78rem;">propriété</span>
+                                <code style="color:#1e293b;">color</code>
+                                <span style="color:#64748b;">→ quelle chose on change</span>
+                            </div>
+                            <div style="display:flex;align-items:center;gap:8px;">
+                                <span style="background:#f0fdf4;color:#16a34a;padding:2px 8px;border-radius:4px;font-size:0.78rem;">valeur</span>
+                                <code style="color:#1e293b;">orange</code>
+                                <span style="color:#64748b;">→ comment on la change</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOC 2 : les 3 façons d'appliquer du CSS -->
+        <section class="lesson-block">
+            <h2>Les 3 façons d'écrire du CSS</h2>
+            <p>
+                Il existe trois endroits où écrire du CSS. La troisième méthode —
+                le fichier externe — est la bonne pratique à adopter dès le début.
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-com">&lt;!-- 1. Inline : dans l'attribut style --&gt;</span>
+<span class="t-tag">&lt;p <span class="t-attr">style</span>=<span class="t-val">"color: red;"</span>&gt;</span>Texte rouge<span class="t-tag">&lt;/p&gt;</span>
+
+<span class="t-com">&lt;!-- 2. Interne : dans une balise &lt;style&gt; --&gt;</span>
+<span class="t-tag">&lt;style&gt;</span>
+  p { color: red; }
+<span class="t-tag">&lt;/style&gt;</span>
+
+<span class="t-com">&lt;!-- 3. ✅ Externe : fichier séparé (meilleure pratique) --&gt;</span>
+<span class="t-tag">&lt;link
+  <span class="t-attr">rel</span>=<span class="t-val">"stylesheet"</span>
+  <span class="t-attr">href</span>=<span class="t-val">"style.css"</span>&gt;</span></pre>
+                </div>
+                <div class="rendu-zone">
+                    <div style="font-size:0.82rem;display:flex;flex-direction:column;gap:8px;width:100%;">
+                        <div style="padding:8px 12px;border-radius:6px;border:1px solid #fca5a5;background:#fef2f2;">
+                            <strong style="color:#dc2626;">❌ Inline</strong> — difficile à maintenir, pas réutilisable
+                        </div>
+                        <div style="padding:8px 12px;border-radius:6px;border:1px solid #fcd34d;background:#fffbeb;">
+                            <strong style="color:#d97706;">⚠ Interne</strong> — mélange HTML et CSS dans le même fichier
+                        </div>
+                        <div style="padding:8px 12px;border-radius:6px;border:1px solid #86efac;background:#f0fdf4;">
+                            <strong style="color:#16a34a;">✅ Externe</strong> — un fichier CSS pour tout le site, propre et réutilisable
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOC 3 : les sélecteurs de base -->
+        <section class="lesson-block">
+            <h2>Les sélecteurs de base</h2>
+            <p>
+                Un sélecteur désigne <em>qui</em> va recevoir le style.
+                Il en existe trois essentiels à maîtriser pour commencer.
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-com">/* Sélecteur de balise : cible TOUTES les balises h2 */</span>
+<span class="t-attr">h2</span> {
+  <span class="t-tag">color</span>: <span class="t-val">navy</span>;
+}
+
+<span class="t-com">/* Sélecteur de classe : cible class="btn" */</span>
+<span class="t-attr">.btn</span> {
+  <span class="t-tag">background</span>: <span class="t-val">orange</span>;
+  <span class="t-tag">padding</span>: <span class="t-val">10px 20px</span>;
+}
+
+<span class="t-com">/* Sélecteur d'id : cible id="hero" (unique) */</span>
+<span class="t-attr">#hero</span> {
+  <span class="t-tag">background</span>: <span class="t-val">#f0f0f0</span>;
+}</pre>
+                </div>
+                <div class="rendu-zone">
+                    <div style="display:flex;flex-direction:column;gap:12px;width:100%;">
+                        <div>
+                            <p style="font-size:0.75rem;color:#64748b;margin-bottom:4px;">Sélecteur balise <code>h2</code> :</p>
+                            <h2 style="color:navy;font-size:1.1rem;margin:0;">Tous les h2 sont bleu marine</h2>
+                        </div>
+                        <div>
+                            <p style="font-size:0.75rem;color:#64748b;margin-bottom:4px;">Sélecteur classe <code>.btn</code> :</p>
+                            <span style="background:orange;color:white;padding:6px 14px;border-radius:4px;font-size:0.85rem;">Bouton stylisé</span>
+                        </div>
+                        <div>
+                            <p style="font-size:0.75rem;color:#64748b;margin-bottom:4px;">Sélecteur id <code>#hero</code> :</p>
+                            <div style="background:#f0f0f0;padding:8px 12px;border-radius:4px;font-size:0.85rem;color:#333;">Zone hero unique</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOC 4 : la cascade -->
+        <section class="lesson-block">
+            <h2>La "cascade" — pourquoi CSS s'appelle ainsi</h2>
+            <p>
+                CSS signifie <em>Cascading</em> Style Sheets. La cascade désigne
+                les règles de priorité quand plusieurs styles s'appliquent
+                au même élément. L'ordre est : <strong>id &gt; classe &gt; balise</strong>.
+                En cas d'égalité, le style écrit <strong>en dernier</strong> gagne.
+            </p>
+            <div class="exemple">
+                <div class="code-zone">
+                    <pre><span class="t-com">/* 1. Balise : priorité faible */</span>
+<span class="t-attr">p</span> {
+  <span class="t-tag">color</span>: <span class="t-val">gray</span>;
+}
+
+<span class="t-com">/* 2. Classe : priorité moyenne */</span>
+<span class="t-attr">.important</span> {
+  <span class="t-tag">color</span>: <span class="t-val">orange</span>;
+}
+
+<span class="t-com">/* 3. Id : priorité forte */</span>
+<span class="t-attr">#unique</span> {
+  <span class="t-tag">color</span>: <span class="t-val">red</span>;
+}
+
+<span class="t-com">&lt;!-- Quel style s'applique ? --&gt;</span>
+<span class="t-tag">&lt;p <span class="t-attr">class</span>=<span class="t-val">"important"</span> <span class="t-attr">id</span>=<span class="t-val">"unique"</span>&gt;</span>
+  Ce texte sera rouge.
+<span class="t-tag">&lt;/p&gt;</span></pre>
+                </div>
+                <div class="rendu-zone">
+                    <div style="display:flex;flex-direction:column;gap:8px;font-size:0.85rem;width:100%;">
+                        <p style="color:gray;">← Balise p (gris) — priorité faible</p>
+                        <p style="color:orange;">← Classe .important (orange) — priorité moyenne</p>
+                        <p style="color:red;font-weight:500;">← Id #unique (rouge) — priorité forte ✓</p>
+                        <p style="font-size:0.78rem;color:#64748b;margin-top:4px;">L'id gagne car il a la plus haute spécificité.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="points-cles">
+            <h3>Points clés à retenir</h3>
+            <ul>
+                <li>Une règle CSS = un sélecteur + des déclarations entre <code>{ }</code></li>
+                <li>Toujours utiliser un fichier CSS externe — jamais de style inline en production</li>
+                <li><code>balise</code> cible tous les éléments, <code>.classe</code> cible un groupe, <code>#id</code> cible un seul élément</li>
+                <li>La priorité : <code>#id</code> &gt; <code>.classe</code> &gt; <code>balise</code></li>
+                <li>Un commentaire CSS s'écrit <code>/* entre ces symboles */</code></li>
+            </ul>
+        </div>
+
+        <nav class="lesson-nav">
+            <a href="lecon-6.html" class="btn-nav">← Leçon 06</a>
+            <a href="lecon-8.html" class="btn-nav primary">Leçon 08 : Couleurs et polices →</a>
+        </nav>
+
+    </main>
+</div>
+</body>
+</html>
